@@ -10,7 +10,7 @@ bool Contact::Input(int index)
 {
 	std::cout << "Input Each field. If you want to out, write \"EXIT\"" << std::endl;
 	this->index = index;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 	{
 		std::cout << "Enter the " << Contact::fieldNames[i] << ": ";
 		std::getline(std::cin, this->fields[i]);
@@ -32,7 +32,7 @@ bool Contact::Input(int index)
 void Contact::Show()
 {
 	std::cout << this->index << "'s information is" << std::endl;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 11; i++)
 	{
 		std::cout << "  " << Contact::fieldNames[i] << " : " << this->fields[i] << std::endl;
 	}
