@@ -8,6 +8,11 @@ std::string Contact::fieldNames[11] = {
 
 bool Contact::Input(int index)
 {
+	if (index > 8)
+	{
+		std::cout << "Full field" << std::endl;
+		return (false);
+	}
 	std::cout << "Input Each field. If you want to out, write \"EXIT\"" << std::endl;
 	this->index = index;
 	for (int i = 0; i < 11; i++)
