@@ -1,5 +1,7 @@
 TARGET = PhoneBook
-SRC = ./*.cpp
+SRC = ./Contact.cpp \
+		./PhoneBook.cpp \
+		./main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = clang++
 FLAGS = -Wall -Werror -Wextra
