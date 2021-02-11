@@ -23,10 +23,10 @@ void replace(std::string filename, std::string search, std::string replace)
 	
 	file.open(filename);
 	if (!file.is_open())
-		throw ("Error : File couldn`t be opened!");
+		throw ("ERROR : Some error in file open");
 	output.open(filename + ".replace", std::ios::trunc);
 	if (!output.is_open())
-		throw ("Error : File couldn`t be made!");
+		throw ("ERROR : Some error in making file");
 	while (std::getline(file, line))
 	{
 		content += (line + "\n");

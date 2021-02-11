@@ -8,6 +8,7 @@ int main()
 	Zombie *normalZombies[3];
 	Zombie *birdZombies[3];
 
+	srand((unsigned)time(0));
 	normal.setZombieType("Normal");
 	for (int i = 0; i < 3; i++)
 		normalZombies[i] = normal.randomChump();
