@@ -21,7 +21,7 @@ class ClapTrap
 		virtual ~ClapTrap();
 		void rangedAttack(std::string const &target);
 		void meleeAttack(std::string const &target);
-		bool takeDamage(unsigned int amount);
+		void takeDamage(unsigned int amount);
 		void beRepaierd(unsigned int amount);
 };
 

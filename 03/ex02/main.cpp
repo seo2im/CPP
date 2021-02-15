@@ -11,8 +11,7 @@ int main()
 	st->rangedAttack("Player");
 	st->takeDamage(20);
 	st->beRepaierd(50);
-	if (st->takeDamage(200))
-		delete st;
+	st->takeDamage(200);
 
 	std::cout << "----------FRAG------------" << std::endl;
 	FragTrap *ft = new FragTrap("FragTrap");
@@ -22,7 +21,6 @@ int main()
 	ft->rangedAttack("Player");
 	ft->takeDamage(20);
 	ft->beRepaierd(50);
-	if (ft->takeDamage(200))
-		delete ft;
+	ft->takeDamage(200);
 }
 
