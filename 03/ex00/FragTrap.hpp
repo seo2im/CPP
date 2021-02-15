@@ -25,11 +25,11 @@ class FragTrap
 		bool takeDamage(unsigned int amount);
 		void beRepaierd(unsigned int amount);
 		void vaulthunter_dot_exe(std::string const & target);
-		void A1(std::string const &target);
-		void A2(std::string const &target);
-		void A3(std::string const &target);
-		void A4(std::string const &target);
-		void A5(std::string const &target);
+		void dance(std::string const &target);
+		void provocation(std::string const &target);
+		void slow(std::string const &target);
+		void fearing(std::string const &target);
+		void fascination(std::string const &target);
 };
 
 typedef void(FragTrap::* semiAttack) (std::string const &target);
