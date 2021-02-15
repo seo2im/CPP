@@ -31,22 +31,21 @@ void FragTrap::meleeAttack(std::string const &target)
 	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!\n" << std::endl;
 }
 
-bool FragTrap::takeDamage(unsigned int amount)
+void FragTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
-	{
-		std::cout << "FR4G-TP " << this->name << " armored!"<< std::endl;
-		return (false);
-	}
+		std::cout << "FR4G-TP " << this->name << " armored!"<< std::endl;		
 	else
 	{
 		this->hitPoint -= damage;
 		std::cout << "FR4G-TP " << this->name << " take " << amount 
 		<< " damaged, HP " << (this->hitPoint >= 0 ? this->hitPoint : 0) <<  " remained!\n" << std::endl;
-		return (true);
+		
+		if (this->hitPoint <= 0)
+			delete this;
 	}
 }
 
@@ -75,7 +74,6 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 
 	if (this->energyPoint <= 25)
 		this->beRepaierd(25);
-	//srand((unsigned int)time(0));
 	(this->*list[rand() % 5])(target);
 }
 

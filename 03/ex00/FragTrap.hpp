@@ -22,7 +22,7 @@ class FragTrap
 		~FragTrap();
 		void rangedAttack(std::string const &target);
 		void meleeAttack(std::string const &target);
-		bool takeDamage(unsigned int amount);
+		void takeDamage(unsigned int amount);
 		void beRepaierd(unsigned int amount);
 		void vaulthunter_dot_exe(std::string const & target);
 		void dance(std::string const &target);

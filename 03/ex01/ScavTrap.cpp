@@ -13,7 +13,7 @@ ScavTrap::ScavTrap(std::string name)
 meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 {
 	this->name = name;
-	std::cout << "FR4G-TP " << this->name << "`s properties\n"
+	std::cout << "SC4V-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << ScavTrap::maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << ScavTrap::maxEnergyPoint << ")\n"
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
@@ -24,38 +24,37 @@ meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl;
+	std::cout << "SC4V-TP " << this->name << " is Dead" << std::endl;
 }
 
 void ScavTrap::rangedAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << this->name << " attacks " << target 
+	std::cout << "SC4V-TP " << this->name << " attacks " << target 
 	<< " at range, causing " << this->rangedAttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::meleeAttack(std::string const &target)
 {
-	std::cout << "FR4G-TP " << this->name << " attacks " << target 
+	std::cout << "SC4V-TP " << this->name << " attacks " << target 
 	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!" << std::endl;
 }
 
-bool ScavTrap::takeDamage(unsigned int amount)
+void ScavTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
-	{
-		std::cout << "FR4G-TP " << this->name << " armored!"<< std::endl;
-		return (false);
-	}
+		std::cout << "SC4V-TP " << this->name << " armored!"<< std::endl;
 	else
 	{
 		this->hitPoint -= damage;
-		std::cout << "FR4G-TP " << this->name << " take " << amount 
+		std::cout << "SC4V-TP " << this->name << " take " << amount 
 		<< " damaged, HP " << (this->hitPoint >= 0 ? this->hitPoint : 0) << " remained!" << std::endl;
-		return (true);
 	}
+
+	if (this->hitPoint <= 0)
+		delete this;
 }
 
 void ScavTrap::beRepaierd(unsigned int amount)
@@ -66,12 +65,12 @@ void ScavTrap::beRepaierd(unsigned int amount)
 		this->hitPoint = ScavTrap::maxHitPoint;
 	if (this->energyPoint > ScavTrap::maxEnergyPoint)
 		this->energyPoint = ScavTrap::maxEnergyPoint;
-	std::cout << "FR4G-TP " << this->name << " repaired " << amount 
+	std::cout << "SC4V-TP " << this->name << " repaired " << amount 
 	<< " points , HP " << this->hitPoint
 	<< " and Energy " << this->energyPoint << " remained!" << std::endl;
 }
 
 void ScavTrap::challengeNewcomer()
 {
-	std::cout << "FR4G-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
+	std::cout << "SC4V-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
 }

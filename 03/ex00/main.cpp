@@ -14,6 +14,5 @@ int main()
 	tp->rangedAttack("Player");
 	tp->takeDamage(20);
 	tp->beRepaierd(50);
-	if (tp->takeDamage(200))
-		delete tp;
+	tp->takeDamage(200);
 }

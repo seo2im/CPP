@@ -11,43 +11,42 @@ level(1), meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
 	<< " | Range : " << this->rangedAttackDamage << " )"
 	<< "\nArmor : " << this->armorDamageRuduction
-	<< std::endl;
+	<< std::endl << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl;
+	std::cout << "FR4G-TP " << this->name << " is Dead\n" << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const &target)
 {
 	std::cout << "FR4G-TP " << this->name << " attacks " << target 
-	<< " at range, causing " << this->rangedAttackDamage << " points of damage!" << std::endl;
+	<< " at range, causing " << this->rangedAttackDamage << " points of damage!\n" << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const &target)
 {
 	std::cout << "FR4G-TP " << this->name << " attacks " << target 
-	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!" << std::endl;
+	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!\n" << std::endl;
 }
 
-bool FragTrap::takeDamage(unsigned int amount)
+void FragTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
-	{
 		std::cout << "FR4G-TP " << this->name << " armored!"<< std::endl;
-		return (false);
-	}
 	else
 	{
 		this->hitPoint -= damage;
 		std::cout << "FR4G-TP " << this->name << " take " << amount 
-		<< " damaged, HP " << (this->hitPoint >= 0 ? this->hitPoint : 0) <<  " remained!" << std::endl;
-		return (true);
+		<< " damaged, HP " << (this->hitPoint >= 0 ? this->hitPoint : 0) <<  " remained!\n" << std::endl;
 	}
+
+	if (this->hitPoint <= 0)
+			delete this;
 }
 
 void FragTrap::beRepaierd(unsigned int amount)
@@ -60,46 +59,50 @@ void FragTrap::beRepaierd(unsigned int amount)
 		this->energyPoint = FragTrap::maxEnergyPoint;
 	std::cout << "FR4G-TP " << this->name << " repaired " << amount 
 	<< " points , HP " << this->hitPoint
-	<< " and Energy " << this->energyPoint << " remained!" << std::endl;
+	<< " and Energy " << this->energyPoint << " remained!\n" << std::endl;
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	semiAttack list[] = {
-		&FragTrap::A1,
-		&FragTrap::A2,
-		&FragTrap::A3,
-		&FragTrap::A4,
-		&FragTrap::A5
+		&FragTrap::dance,
+		&FragTrap::provocation,
+		&FragTrap::slow,
+		&FragTrap::fearing,
+		&FragTrap::fascination
 	};
 
 	if (this->energyPoint <= 25)
 		this->beRepaierd(25);
-	srand(time(NULL));
 	(this->*list[rand() % 5])(target);
 }
 
-void FragTrap::A1(std::string const &target)
+void FragTrap::dance(std::string const &target)
 {
-	std::cout << "A1\n";
+	std::cout << "FR4G-TP " << this->name << " is dancing!\n" << target 
+	<< " get confused!\n" << std::endl;
 }
 
-void FragTrap::A2(std::string const &target)
+void FragTrap::provocation(std::string const &target)
 {
-	std::cout << "A2\n";
+	std::cout << "FR4G-TP " << this->name << " use provacation!\n" << target 
+	<< " is angry!\n" << std::endl;
 }
 
-void FragTrap::A3(std::string const &target)
+void FragTrap::slow(std::string const &target)
 {
-	std::cout << "A3\n";
+	std::cout << "FR4G-TP " << this->name << " use slow!\n" << target 
+	<< " decrease speed!\n" << std::endl;
 }
 
-void FragTrap::A4(std::string const &target)
+void FragTrap::fearing(std::string const &target)
 {
-	std::cout << "A4\n";
+	std::cout << "FR4G-TP " << this->name << " use fearing!\n" << target 
+	<< " get confused!\n" << std::endl;
 }
 
-void FragTrap::A5(std::string const &target)
+void FragTrap::fascination(std::string const &target)
 {
-	std::cout << "A5\n";
+	std::cout << "FR4G-TP " << this->name << " use fascination!\n" << target 
+	<< " come slowly!\n" << std::endl;
 }
