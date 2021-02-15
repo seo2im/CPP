@@ -19,9 +19,9 @@ class ClapTrap
 	public :
 		ClapTrap(std::string name);
 		virtual ~ClapTrap();
-		virtual void rangedAttack(std::string const &target);
-		virtual void meleeAttack(std::string const &target);
-		bool takeDamage(unsigned int amount);
+		void rangedAttack(std::string const &target);
+		void meleeAttack(std::string const &target);
+		void takeDamage(unsigned int amount);
 		void beRepaierd(unsigned int amount);
 		std::string getName();
 };

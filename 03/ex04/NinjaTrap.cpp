@@ -10,7 +10,7 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	this->meleeAttackDamage = 60;
 	this->rangedAttackDamage = 5;
 	this->armorDamageRuduction = 0;
-	std::cout << "FR4G-TP " << this->name << "`s properties\n"
+	std::cout << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
@@ -21,38 +21,26 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl;
-}
-
-void NinjaTrap::rangedAttack(std::string const &target)
-{
-	std::cout << "NinjaAttaking " << this->name << " attacks " << target 
-	<< " at range, causing " << this->rangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void NinjaTrap::meleeAttack(std::string const &target)
-{
-	std::cout << "NinjaAttaking " << this->name << " attacks " << target 
-	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!" << std::endl;
+	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &trap)
 {
-	std::cout << "ClapTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "ClapTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &trap)
 {
-	std::cout << "FragTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "FragTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &trap)
 {
-	std::cout << "ScavTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "ScavTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(NinjaTrap &trap)
 {
-	std::cout << "NinjaTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "NinjaTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 

@@ -26,9 +26,8 @@ int main()
 	sp->ninjaShoebox(*ct);
 	sp->ninjaShoebox(*ft);
 	sp->ninjaShoebox(*nj);
-
-	if (sp->takeDamage(200))
-		delete sp;
+	sp->takeDamage(200);
+	
 	delete st;
 	delete ft;
 	delete ct;

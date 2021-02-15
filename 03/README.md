@@ -27,4 +27,6 @@
 
 ### ex04
 
-1. 
+1. Multiple inheritation
+	- multiple inheritation must use `virtual` keyword.
+	- `virtual` fix ambigousion of multiple inheritation, but use more memories.

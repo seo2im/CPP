@@ -8,9 +8,7 @@ class NinjaTrap : virtual public ClapTrap
 {
 	public :
 		NinjaTrap(std::string name);
-		virtual ~NinjaTrap();
-		void rangedAttack(std::string const &target);
-		void meleeAttack(std::string const &target);
+		~NinjaTrap();
 		void ninjaShoebox(ClapTrap &trap);
 		void ninjaShoebox(FragTrap &trap);
 		void ninjaShoebox(ScavTrap &trap);
