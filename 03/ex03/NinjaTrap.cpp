@@ -21,26 +21,26 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 
 NinjaTrap::~NinjaTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl;
+	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &trap)
 {
-	std::cout << "ClapTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "ClapTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &trap)
 {
-	std::cout << "FragTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "FragTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &trap)
 {
-	std::cout << "ScavTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "ScavTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(NinjaTrap &trap)
 {
-	std::cout << "NinjaTrap " << trap.getName() << " in the Shoebox" << std::endl;
+	std::cout << "NinjaTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 

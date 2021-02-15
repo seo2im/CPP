@@ -18,9 +18,9 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->meleeAttackDamage = 20;
 	this->rangedAttackDamage = 15;
 	this->armorDamageRuduction = 3;
-	std::cout << "FR4G-TP " << this->name << "`s properties\n"
-	<< "HP : " << this->hitPoint << "(Max : " << ScavTrap::maxHitPoint << ")\n"
-	<< "Energy : "   << this->energyPoint << "(Max : " << ScavTrap::maxEnergyPoint << ")\n"
+	std::cout << "SC4V-TP " << this->name << "`s properties\n"
+	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
+	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
 	<< " | Range : " << this->rangedAttackDamage << " )"
 	<< "\nArmor : " << this->armorDamageRuduction
@@ -29,10 +29,10 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl;
+	std::cout << "SC4V-TP " << this->name << " is Dead" << std::endl;
 }
 
 void ScavTrap::challengeNewcomer()
 {
-	std::cout << "FR4G-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
+	std::cout << "SC4V-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
 }

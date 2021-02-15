@@ -19,3 +19,12 @@
 	- Class inherit class, inheritating class can use inheritated class's attribute & method.
 	- Must work inhertated class's constructor & destructor.
 	
+### ex03
+
+1. function overload
+	- class function overloading possible.
+	- overloading mean that can declare same name function but different parameter.
+
+### ex04
+
+1. 

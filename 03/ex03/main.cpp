@@ -23,8 +23,7 @@ int main()
 	nj->ninjaShoebox(*ft);
 	nj->ninjaShoebox(*nj);
 
-	if (nj->takeDamage(200))
-		delete nj;
+	nj->takeDamage(200);
 	delete st;
 	delete ft;
 	delete ct;
