@@ -19,5 +19,6 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
+	(void)target;
 	this->_xp += 10;
 }

@@ -3,14 +3,14 @@
 
 int main()
 {
-	Sorcerer robert("Robert", "the Magnificent");
+	Sorcerer Kim("Kim", "Sorcerer");
 	
-	Victim jim("Jimmy");
-	Peon joe("Joe");
+	Victim Lee("Lee");
+	Peon Park("Park");
 
-	std::cout << robert << jim << joe;
+	std::cout << Kim << Lee << Park;
 
-	robert.polymorph(jim);
-	robert.polymorph(joe);
+	Kim.polymorph(Lee);
+	Kim.polymorph(Park);
 	return (0);
 }

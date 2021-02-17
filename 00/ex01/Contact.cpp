@@ -45,7 +45,6 @@ void Contact::Show()
 
 void Contact::ShowPreview()
 {
-	
 	std::cout<< "|" << std::setw(10) << this->index;
 	for (int i = 0; i < 3; i++)
 	{
