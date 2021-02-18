@@ -1,6 +1,7 @@
 # CPP 04
 
 ### ex00
+Victim is abstract class, with Peon is inheritated
 
 1. const function
 	- `const function` member variable can`t be changed.
@@ -13,6 +14,7 @@
 	- Inhertating class can re-declare functions in inhertated class.
 
 ### ex01
+Weapone is abstract class, Abstract class parameter get inhertatied class.
 
 1. virtual function
 	- virtual function must be re-declared in inheritating class.
@@ -23,6 +25,7 @@
 
 
 ### ex02
+I~ are interface, interface parameter get inheritatied class.
 
 1. Interface class
 	- Has only destructor & pure virtual fcuntions.
@@ -31,6 +34,7 @@
 	- `this` means own class or memory.
 
 ## ex03
+I~ are interface, A~ are abstract
 
 1. Abstract class
 	- Abstract class has pure virtual function.

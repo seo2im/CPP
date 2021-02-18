@@ -1,7 +1,7 @@
 # 01
 
 ### ex00
-**OBJECT**
+Pony class stack or heap declaring
 
 1. Heap 
 	- Heap is dynamic allocator
@@ -14,12 +14,13 @@
 	
 ### ex01
 **OBJECT**
+memoryLeakCheck function
 
 1. Heap memory free
 	- must use 'delete' operator.
 
 ### ex02
-**OBJECT**
+Zombie class is included ZombieEvent class.
 
 1. Control Class with Heap or Stack
 	- Zombie class is called with Stack or Heap, But must be freeed apropriate timing.
@@ -27,13 +28,13 @@
 2. Random seed -> must process in first time
 
 ### ex03
-**OBJECT**
+ZombieHorde class has Zombie class when declaring.
 
 1. Class Have Class
 	- Class have class pointer or reference
 
 ### ex04
-**OBJECT**
+Brain is reference or pointer value.
 
 1. reference variable
 	- ref variable is declared with `&`
@@ -41,7 +42,7 @@
 	- When evaluation(ex> param), not use pointer.
 
 ### ex05
-**OBJECT**
+Human class has Brain ref value
 
 1. `this` operator
 	- `this` operator is pointer of own. For example, in class, `this` mean address of class.
@@ -50,14 +51,14 @@
 	- variables in ref variable can be used with operator `.`
 
 ### ex06
-**OBJECT**
+HumanA has ref weapone, but B has pointer ref weapone
 
 1. Declare class with ref
 
 2. Class have class ref
 
 ### ex07
-**OBJECT**
+Sentence change
 
 1. File stream
 	- ifstream / ofstream is in/out stream of file.
