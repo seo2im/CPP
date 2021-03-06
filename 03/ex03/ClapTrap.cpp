@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string name)
-: maxHitPoint(0), hitPoint(0), maxEnergyPoint(0), energyPoint(0), level(0),
+: maxHitPoint(0), maxEnergyPoint(0), hitPoint(0), energyPoint(0), level(0),
 meleeAttackDamage(0), rangedAttackDamage(0), armorDamageRuduction(0)
 {
 	std::cout << "ClapTrap is Made" << std::endl << std::endl;

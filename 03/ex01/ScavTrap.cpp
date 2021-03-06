@@ -19,6 +19,7 @@ meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
 	<< " | Range : " << this->rangedAttackDamage << " )"
 	<< "\nArmor : " << this->armorDamageRuduction
+	<< "\nLevel : " << this->level
 	<< std::endl;
 }
 
