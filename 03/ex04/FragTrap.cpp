@@ -1,5 +1,11 @@
 #include "FragTrap.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+FragTrap::FragTrap()
+{
+}
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->maxHitPoint = 100;
@@ -10,7 +16,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->meleeAttackDamage = 30;
 	this->rangedAttackDamage = 20;
 	this->armorDamageRuduction = 5;
-	std::cout << this->name << "`s properties\n"
+	std::cout << "FR4G-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
@@ -23,6 +29,31 @@ FragTrap::~FragTrap()
 {
 	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl << std::endl;
 }
+
+FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
+{
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+FragTrap & FragTrap::operator=( FragTrap const & rhs )
+{
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, FragTrap const & i )
+{
+	o << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
@@ -38,6 +69,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 		this->beRepaierd(25);
 	(this->*list[rand() % 5])(target);
 }
+
 
 void FragTrap::dance(std::string const &target)
 {

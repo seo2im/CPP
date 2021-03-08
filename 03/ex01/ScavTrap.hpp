@@ -6,6 +6,20 @@
 
 class ScavTrap
 {
+	public :
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap( const ScavTrap & src );
+		~ScavTrap();
+		ScavTrap & operator=( ScavTrap const & rhs );
+
+		void rangedAttack(std::string const &target);
+		void meleeAttack(std::string const &target);
+		void takeDamage(unsigned int amount);
+		void beRepaierd(unsigned int amount);
+		void challengeNewcomer();
+		std::string getName() const;
+
 	private :
 		static std::string challenge[5];
 		static const int maxHitPoint = 100;
@@ -17,14 +31,8 @@ class ScavTrap
 		int meleeAttackDamage;
 		int rangedAttackDamage;
 		int armorDamageRuduction;
-	public :
-		ScavTrap(std::string name);
-		~ScavTrap();
-		void rangedAttack(std::string const &target);
-		void meleeAttack(std::string const &target);
-		void takeDamage(unsigned int amount);
-		void beRepaierd(unsigned int amount);
-		void challengeNewcomer();
 };
+
+std::ostream & operator<<( std::ostream & o, ScavTrap const & i );
 
 #endif

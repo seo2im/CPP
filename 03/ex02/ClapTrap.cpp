@@ -1,5 +1,13 @@
 #include "ClapTrap.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+ClapTrap::ClapTrap()
+{
+}
+
 ClapTrap::ClapTrap(std::string name)
 : maxHitPoint(0), maxEnergyPoint(0), hitPoint(0), energyPoint(0), level(0),
 meleeAttackDamage(0), rangedAttackDamage(0), armorDamageRuduction(0)
@@ -8,10 +16,46 @@ meleeAttackDamage(0), rangedAttackDamage(0), armorDamageRuduction(0)
 	this->name = name;
 }
 
+ClapTrap::ClapTrap( const ClapTrap & src )
+: hitPoint(src.hitPoint), energyPoint(src.energyPoint),
+level(src.level), name(src.name), meleeAttackDamage(src.meleeAttackDamage), rangedAttackDamage(src.rangedAttackDamage), armorDamageRuduction(src.armorDamageRuduction)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap " << this->name << " is Destoryed" << std::endl << std::endl;
 }
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
+{
+	this->hitPoint = rhs.hitPoint;
+	this->energyPoint = rhs.energyPoint;
+	this->level = rhs.level;
+	this->name = rhs.name;
+	this->meleeAttackDamage = rhs.meleeAttackDamage;
+	this->rangedAttackDamage = rhs.rangedAttackDamage;
+	this->armorDamageRuduction = rhs.armorDamageRuduction;
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, ClapTrap const & i )
+{
+	o << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void ClapTrap::rangedAttack(std::string const &target)
 {
@@ -56,3 +100,11 @@ void ClapTrap::beRepaierd(unsigned int amount)
 	<< " and Energy " << this->energyPoint << " remained!" << std::endl << std::endl;
 }
 
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+std::string ClapTrap::getName() const
+{
+	return this->name;
+}

@@ -1,5 +1,13 @@
 #include "SuperTrap.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+SuperTrap::SuperTrap()
+{
+}
+
 SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTrap(name)
 {
 	this->maxHitPoint = this->FragTrap::maxHitPoint;
@@ -19,10 +27,38 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTr
 	<< std::endl << std::endl;
 }
 
+SuperTrap::SuperTrap( const SuperTrap & src ) : ClapTrap(src)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 SuperTrap::~SuperTrap()
 {
 	std::cout << this->name << " is Dead" << std::endl << std::endl;
 }
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+SuperTrap &	SuperTrap::operator=( SuperTrap const & rhs )
+{
+	ClapTrap::operator=(rhs);
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, SuperTrap const & i )
+{
+	o << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void SuperTrap::rangedAttack(std::string const &target)
 {

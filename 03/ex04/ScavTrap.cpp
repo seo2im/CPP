@@ -8,6 +8,13 @@ std::string ScavTrap::challenge[5] = {
 	"FIVTH"
 };
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+ScavTrap::ScavTrap()
+{
+}
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	this->maxHitPoint = 100;
@@ -18,14 +25,38 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->meleeAttackDamage = 20;
 	this->rangedAttackDamage = 15;
 	this->armorDamageRuduction = 3;
-	std::cout << this->name << "`s properties\n"
+	std::cout << "SC4V-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
 	<< "Each Damage(Melee : " << this->meleeAttackDamage
 	<< " | Range : " << this->rangedAttackDamage << " )"
 	<< "\nArmor : " << this->armorDamageRuduction
-	<< std::endl << std::endl;
+	<< std::endl;
 }
+ScavTrap::ScavTrap( const ScavTrap & src ) : ClapTrap(src)
+{
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+ScavTrap & ScavTrap::operator=( ScavTrap const & rhs )
+{
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, ScavTrap const & i )
+{
+	o  << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 ScavTrap::~ScavTrap()
 {

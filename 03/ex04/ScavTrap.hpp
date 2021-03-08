@@ -4,13 +4,19 @@
 
 class ScavTrap : public ClapTrap
 {
+	public :
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap( const ScavTrap & src );
+		~ScavTrap();
+		ScavTrap & operator=( ScavTrap const & rhs );
+
+		void challengeNewcomer();
+	
 	private :
 		static std::string challenge[5];
-
-	public :
-		ScavTrap(std::string name);
-		~ScavTrap();
-		void challengeNewcomer();
 };
+
+std::ostream & operator<<( std::ostream & o, ScavTrap const & i );
 
 #endif

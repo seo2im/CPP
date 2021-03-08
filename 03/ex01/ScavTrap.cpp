@@ -8,6 +8,13 @@ std::string ScavTrap::challenge[5] = {
 	"FIVTH"
 };
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+ScavTrap::ScavTrap()
+{
+}
 ScavTrap::ScavTrap(std::string name)
 : hitPoint(ScavTrap::maxHitPoint), energyPoint(ScavTrap::maxEnergyPoint), level(1),
 meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
@@ -23,10 +30,46 @@ meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 	<< std::endl;
 }
 
+ScavTrap::ScavTrap( const ScavTrap & src )
+: hitPoint(src.hitPoint), energyPoint(src.energyPoint), level(src.level), name(src.name),
+meleeAttackDamage(src.meleeAttackDamage), rangedAttackDamage(src.rangedAttackDamage), armorDamageRuduction(src.armorDamageRuduction)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << "SC4V-TP " << this->name << " is Dead" << std::endl;
 }
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+ScavTrap & ScavTrap::operator=( ScavTrap const & rhs )
+{
+	this->hitPoint = rhs.hitPoint;
+	this->energyPoint = rhs.energyPoint;
+	this->level = rhs.level;
+	this->name = rhs.name;
+	this->meleeAttackDamage = rhs.meleeAttackDamage;
+	this->rangedAttackDamage = rhs.rangedAttackDamage;
+	this->armorDamageRuduction = rhs.armorDamageRuduction;
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, ScavTrap const & i )
+{
+	o  << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void ScavTrap::rangedAttack(std::string const &target)
 {
@@ -74,4 +117,13 @@ void ScavTrap::beRepaierd(unsigned int amount)
 void ScavTrap::challengeNewcomer()
 {
 	std::cout << "SC4V-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
+}
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+std::string ScavTrap::getName() const
+{
+	return this->name;
 }

@@ -1,5 +1,12 @@
 #include "NinjaTrap.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+NinjaTrap::NinjaTrap()
+{
+}
 NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 {
 	this->maxHitPoint = 60;
@@ -18,10 +25,37 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	<< "\nArmor : " << this->armorDamageRuduction
 	<< std::endl;
 }
+NinjaTrap::NinjaTrap( const NinjaTrap & src ) : ClapTrap(src)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
 
 NinjaTrap::~NinjaTrap()
 {
 	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl << std::endl;
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+NinjaTrap & NinjaTrap::operator=( NinjaTrap const & rhs )
+{
+	ClapTrap::operator=(rhs);
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
+std::ostream & operator<<( std::ostream & o, NinjaTrap const & i )
+{
+	o  << i.getName();
+	return o;
 }
 
 void NinjaTrap::ninjaShoebox(ClapTrap &trap)

@@ -1,5 +1,11 @@
 #include "FragTrap.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+FragTrap::FragTrap()
+{
+}
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->maxHitPoint = 100;
@@ -24,6 +30,31 @@ FragTrap::~FragTrap()
 	std::cout << "FR4G-TP " << this->name << " is Dead" << std::endl << std::endl;
 }
 
+FragTrap::FragTrap( const FragTrap & src ) : ClapTrap(src)
+{
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+FragTrap & FragTrap::operator=( FragTrap const & rhs )
+{
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
+	return *this;
+}
+
+std::ostream & operator<<( std::ostream & o, FragTrap const & i )
+{
+	o << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	semiAttack list[] = {
@@ -38,6 +69,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const & target)
 		this->beRepaierd(25);
 	(this->*list[rand() % 5])(target);
 }
+
 
 void FragTrap::dance(std::string const &target)
 {
