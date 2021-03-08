@@ -1,25 +1,61 @@
 #include "Character.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+Character::Character()
+{
+}
+
 Character::Character(std::string const &name)
 {
 	this->name = name;
 	this->ap = 40;
 	this->aweapon = NULL;
 }
-Character::~Character(){}
 
-std::string Character::getName() const
+Character::Character( const Character & src )
+: name(src.name), ap(src.ap), aweapon(src.aweapon)
 {
-	return (this->name);
 }
-int Character::getAp() const
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+Character::~Character()
 {
-	return (this->ap);
 }
-AWeapon *Character::getAWeapon() const
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Character & Character::operator=( Character const & rhs )
 {
-	return (this->aweapon);
+	if ( this != &rhs )
+	{
+		this->name = rhs.getName();
+		this->ap = rhs.getAp();
+		this->aweapon = rhs.getAWeapon();
+	}
+	return *this;
 }
+
+std::ostream &operator<<(std::ostream &out, Character const &charactor)
+{
+	out << charactor.getName() << " has " << charactor.getAp() << " AP and ";
+	if (charactor.getAWeapon())
+		out << "wields a " << charactor.getAWeapon()->getName();
+	else
+		out << "is unarmed";
+	out << std::endl;
+	return (out);
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void Character::recoverAP()
 {
@@ -46,13 +82,20 @@ void Character::attack(Enemy *enemy)
 		delete enemy;
 }
 
-std::ostream &operator<<(std::ostream &out, Character const &charactor)
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+std::string Character::getName() const
 {
-	out << charactor.getName() << " has " << charactor.getAp() << " AP and ";
-	if (charactor.getAWeapon())
-		out << "wields a " << charactor.getAWeapon()->getName();
-	else
-		out << "is unarmed";
-	out << std::endl;
-	return (out);
+	return (this->name);
+}
+int Character::getAp() const
+{
+	return (this->ap);
+}
+AWeapon *Character::getAWeapon() const
+{
+	return (this->aweapon);
 }

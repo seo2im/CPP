@@ -7,11 +7,17 @@ class Victim
 {
 	protected:
 		std::string name;
+		Victim();
+
 	public:
+		Victim( const Victim & src );
 		Victim(std::string name);
 		virtual ~Victim();
-		std::string getName() const;
+		Victim & operator=( Victim const & rhs );
+		
 		virtual void getPolymorphed() const;
+
+		std::string getName() const;
 };
 
 std::ostream &operator<<(std::ostream &out, Victim const &victim);

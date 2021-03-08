@@ -1,10 +1,26 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("cure") {}
-Cure::Cure(Cure const &other) : AMateria("cure")
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+Cure::Cure() : AMateria("cure")
 {
-	*this = other;
 }
+
+Cure::Cure(Cure const &other)
+: AMateria(other)
+{	
+}
+
+Cure::Cure( const Cure & src ) ; AMateria(src)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 Cure::~Cure(){}
 
 AMateria *Cure::clone() const

@@ -1,10 +1,28 @@
 #include "Squad.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
 Squad::Squad()
 {
-	this->units = NULL;
+	this->units = nullptr;
 	this->count = 0;
 }
+
+Squad::Squad( const Squad & src )
+: count(0), units(nullptr)
+{
+	this->count = 0;
+	for (int i = 0; i < src.count; i++)
+		this->push(src.units[i]->clone());
+}
+
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 Squad::~Squad()
 {
 	if (this->units)
@@ -15,16 +33,31 @@ Squad::~Squad()
 	}
 }
 
-int Squad::getCount() const
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Squad & Squad::operator=( Squad const & rhs )
 {
-	return (this->count);	
+	if ( this != &rhs )
+	{
+		if (this->units)
+		{
+			for (int i = 0; i < this->count; i++)
+				delete this->units;
+				this->units = nullptr;
+		}
+		this->count = 0;
+		for (int i = 0; i < rhs.getCount(); i++)
+			this->push(rhs.getUnit(i)->clone());
+	}
+	return *this;
 }
-ISpaceMarine* Squad::getUnit(int i) const
-{
-	if (i > count || i < 0 || count == 0)
-		return (nullptr);
-	return (this->units[i]);
-}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
 int Squad::push(ISpaceMarine *unit)
 {
 	if (!unit)
@@ -51,4 +84,19 @@ int Squad::push(ISpaceMarine *unit)
 		this->count++;
 	}
 	return (this->count);
+}
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+int Squad::getCount() const
+{
+	return (this->count);	
+}
+ISpaceMarine* Squad::getUnit(int i) const
+{
+	if (i > count || i < 0 || count == 0)
+		return (nullptr);
+	return (this->units[i]);
 }

@@ -12,10 +12,15 @@ class Squad : public ISquad
 
 	public :
 		Squad();
+		Squad( const Squad & src );
 		~Squad();
+		Squad & operator=( Squad const & rhs );
+
+		int push(ISpaceMarine *unit);
+
 		int getCount() const;
 		ISpaceMarine* getUnit(int i) const;
-		int push(ISpaceMarine *unit);
+		
 };
 
 #endif

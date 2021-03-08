@@ -8,6 +8,7 @@ class TacticalMarine : public ISpaceMarine
 		TacticalMarine();
 		TacticalMarine(TacticalMarine const &other);
 		~TacticalMarine();
+		TacticalMarine & operator=( TacticalMarine const & rhs );
 
 		ISpaceMarine *clone() const;
 		void battleCry() const;

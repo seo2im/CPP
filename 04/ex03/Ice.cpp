@@ -1,11 +1,43 @@
 #include "Ice.hpp"
 
-Ice::Ice() : AMateria("ice") {}
-Ice::Ice(Ice const &other) : AMateria("ice")
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+Ice::Ice() : AMateria("ice")
 {
-	*this = other;
 }
-Ice::~Ice(){}
+
+Ice::Ice(Ice const &other) : AMateria(other)
+{
+}
+
+Ice::Ice( const Ice & src ) : AMateria(src)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+Ice::~Ice()
+{
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Ice & Ice::operator=( Ice const & rhs )
+{
+	if ( this != &rhs )
+		*this = rhs;
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 AMateria *Ice::clone() const
 {

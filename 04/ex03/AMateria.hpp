@@ -7,19 +7,22 @@ class AMateria;
 
 class AMateria
 {
-	protected :
-		std::string _type;
+	private :
 		unsigned int _xp;
-
+		std::string _type;
+		
 	public :
+		AMateria();
 		AMateria(std::string const &type);
+		AMateria( const AMateria & src );
 		virtual ~AMateria();
-
-		std::string const &getType() const;
-		unsigned int getXP() const;
+		AMateria & operator=( AMateria const & rhs );
 
 		virtual AMateria *clone() const = 0;
 		virtual void use(ICharacter &target);
+		
+		std::string const &getType() const;
+		unsigned int getXP() const;
 };
 
 #endif

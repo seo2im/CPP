@@ -8,6 +8,7 @@ class AssaultTerminator : public ISpaceMarine
 		AssaultTerminator();
 		AssaultTerminator(AssaultTerminator const &other);
 		~AssaultTerminator();
+		AssaultTerminator & operator=( AssaultTerminator const & rhs );
 
 		ISpaceMarine *clone() const;
 		void battleCry() const;

@@ -7,22 +7,26 @@
 
 class Character
 {
+	public :
+		Character(std::string const &name);
+		Character( const Character & src );
+		~Character();
+		Character & operator=( Character const & rhs );
+		
+		void recoverAP();
+		void equip(AWeapon *aweapon);
+		void attack(Enemy *enemy);
+
+		std::string getName() const;
+		int getAp() const;
+		AWeapon *getAWeapon() const;
+	
 	private :
 		std::string name;
 		int ap;
 		AWeapon *aweapon;
+		Character();
 
-	public :
-		Character(std::string const &name);
-		~Character();
-		
-		std::string getName() const;
-		int getAp() const;
-		AWeapon *getAWeapon() const;
-
-		void recoverAP();
-		void equip(AWeapon *aweapon);
-		void attack(Enemy *enemy);
 };
 
 std::ostream &operator<<(std::ostream &out, Character const &charactor);

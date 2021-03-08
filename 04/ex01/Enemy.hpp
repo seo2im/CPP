@@ -5,13 +5,17 @@
 
 class Enemy
 {
-	protected :
+	private :
 		int hp;
 		std::string type;
+		Enemy();
 		
 	public :
 		Enemy(int hp, std::string const &type);
+		Enemy( const Enemy & src );
 		virtual ~Enemy();
+		Enemy & operator=( Enemy const & rhs );
+
 		std::string getType() const;
 		int getHP() const;
 		
