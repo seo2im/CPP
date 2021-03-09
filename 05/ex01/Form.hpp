@@ -9,27 +9,29 @@ class Form
 {
 	private :
 		std::string const name;
-		bool isSigned;
 		int const signGrade;
 		int const excuteGrade;
+		bool isSigned;
+		Form();
 
 	public :
 		Form(std::string const name, int const signGrade, int const excuteGrade);
 		~Form();
+		Form( const Form & src );
+		Form & operator=( Form const & rhs );
 
-		std::string getName() const;
 		bool IsSigned() const;
-		int getSignGrade() const;
-		int getExcuteGrade() const;
-
 		void beSigned(Bureaucrat const &bureaucrat);
-
 		class GradeTooHighException: public std::exception {
 			virtual const char* what() const throw();
 		};
 		class GradeTooLowException: public std::exception {
 			virtual const char* what() const throw();
 		};
+
+		std::string getName() const;
+		int getSignGrade() const;
+		int getExcuteGrade() const;
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &form);

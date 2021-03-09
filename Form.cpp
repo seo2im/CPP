@@ -1,14 +1,14 @@
-#include "MateriaSource.hpp"
+#include "Form.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MateriaSource::MateriaSource()
+Form::Form()
 {
 }
 
-MateriaSource::MateriaSource( const MateriaSource & src )
+Form::Form( const Form & src )
 {
 }
 
@@ -17,7 +17,7 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-MateriaSource::~MateriaSource()
+Form::~Form()
 {
 }
 
@@ -26,7 +26,7 @@ MateriaSource::~MateriaSource()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
+Form &				Form::operator=( Form const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -35,7 +35,7 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
+std::ostream &			operator<<( std::ostream & o, Form const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;

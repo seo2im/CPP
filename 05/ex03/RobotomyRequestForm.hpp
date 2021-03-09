@@ -8,9 +8,14 @@ class RobotomyRequestForm: public Form
 {
 	private :
 		std::string target;
+		RobotomyRequestForm();
 
 	public :
 		RobotomyRequestForm(std::string const &target);
+		RobotomyRequestForm( const RobotomyRequestForm & src );
+		~RobotomyRequestForm();
+		RobotomyRequestForm & operator=( RobotomyRequestForm const & rhs );
+
 		void excute(Bureaucrat const &executor) const;
 };
 

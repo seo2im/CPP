@@ -1,10 +1,47 @@
 #include "RobotomyRequestForm.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+RobotomyRequestForm::RobotomyRequestForm() : Form("", 1, 1)
+{
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
-	: Form("Robotomy Request Form", 72, 45)
+: Form("Robotomy Request Form", 72, 45)
 {
 	this->target = target;
 }
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
+: Form(src), target(src.target)
+{
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+{
+	if ( this != &rhs )
+	{
+		RobotomyRequestForm tmp(rhs);
+		*this = tmp;
+	}
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void RobotomyRequestForm::excute(Bureaucrat const &executor) const
 {

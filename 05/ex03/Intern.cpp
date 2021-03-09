@@ -1,5 +1,41 @@
 #include "Intern.hpp"
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+Intern::Intern()
+{
+}
+
+Intern::Intern( const Intern & src )
+{
+	(void)src;
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+Intern::~Intern()
+{
+}
+
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Intern & Intern::operator=( Intern const & rhs )
+{
+	if ( this != &rhs )
+		*this = rhs;
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
 Form *Intern::makeForm(std::string const &name, std::string const &target)
 {
 	if ("President Pardon Form" == name)

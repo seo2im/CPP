@@ -8,6 +8,11 @@
 class Intern
 {
 	public : 
+		Intern();
+		Intern( const Intern & src );
+		~Intern();
+		Intern & operator=( Intern const & rhs );
+		
 		Form *makeForm(std::string const &name, std::string const &target);
 };
 
