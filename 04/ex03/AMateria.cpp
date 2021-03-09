@@ -15,7 +15,7 @@ AMateria::AMateria(std::string const &type)
 }
 
 AMateria::AMateria( const AMateria & src )
-: _type(src._type), _xp(src._xp)
+: _xp(src._xp), _type(src._type)
 {
 }
 

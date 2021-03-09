@@ -8,10 +8,6 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(Ice const &other) : AMateria(other)
-{
-}
-
 Ice::Ice( const Ice & src ) : AMateria(src)
 {
 }

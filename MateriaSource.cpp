@@ -1,14 +1,14 @@
-#include "Ice.hpp"
+#include "MateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Ice::Ice()
+MateriaSource::MateriaSource()
 {
 }
 
-Ice::Ice( const Ice & src )
+MateriaSource::MateriaSource( const MateriaSource & src )
 {
 }
 
@@ -17,7 +17,7 @@ Ice::Ice( const Ice & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Ice::~Ice()
+MateriaSource::~MateriaSource()
 {
 }
 
@@ -26,7 +26,7 @@ Ice::~Ice()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Ice &				Ice::operator=( Ice const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	//if ( this != &rhs )
 	//{
@@ -35,7 +35,7 @@ Ice &				Ice::operator=( Ice const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
+std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
 {
 	//o << "Value = " << i.getValue();
 	return o;

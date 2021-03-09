@@ -8,8 +8,9 @@ class Cure : public AMateria
 {
 	public :
 		Cure();
-		Cure(Cure const &other);
+		Cure( const Cure & src );
 		~Cure();
+		Cure & operator=( Cure const & rhs );
 
 		AMateria *clone() const;
 		void use(ICharacter &target);

@@ -8,12 +8,7 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure(Cure const &other)
-: AMateria(other)
-{	
-}
-
-Cure::Cure( const Cure & src ) ; AMateria(src)
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
 }
 
@@ -22,6 +17,21 @@ Cure::Cure( const Cure & src ) ; AMateria(src)
 */
 
 Cure::~Cure(){}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+Cure & Cure::operator=( Cure const & rhs )
+{
+	if ( this != &rhs )
+		*this = rhs;
+	return *this;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 AMateria *Cure::clone() const
 {
