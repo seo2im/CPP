@@ -9,7 +9,7 @@ class Cure : public AMateria
 	public :
 		Cure();
 		Cure( const Cure & src );
-		~Cure();
+		virtual ~Cure();
 		Cure & operator=( Cure const & rhs );
 
 		AMateria *clone() const;

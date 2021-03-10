@@ -8,7 +8,7 @@ class FragTrap : public ClapTrap
 		FragTrap();
 		FragTrap(std::string name);
 		FragTrap( const FragTrap & src );
-		~FragTrap();
+		virtual ~FragTrap();
 		FragTrap & operator=( FragTrap const & rhs );
 
 		void vaulthunter_dot_exe(std::string const & target);

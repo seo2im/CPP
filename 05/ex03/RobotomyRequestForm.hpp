@@ -13,7 +13,7 @@ class RobotomyRequestForm: public Form
 	public :
 		RobotomyRequestForm(std::string const &target);
 		RobotomyRequestForm( const RobotomyRequestForm & src );
-		~RobotomyRequestForm();
+		virtual ~RobotomyRequestForm();
 		RobotomyRequestForm & operator=( RobotomyRequestForm const & rhs );
 
 		void excute(Bureaucrat const &executor) const;

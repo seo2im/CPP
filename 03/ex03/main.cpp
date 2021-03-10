@@ -6,26 +6,23 @@
 int main()
 {
 	std::cout << "----------SCAV------------" << std::endl;
-	ScavTrap *st = new ScavTrap("ScavTrap");
+	ScavTrap st("ScavTrap");
 	std::cout << "----------FRAG------------" << std::endl;
-	FragTrap *ft = new FragTrap("FragTrap");
+	FragTrap ft("FragTrap");
 	std::cout << "----------Clap------------" << std::endl;
-	ClapTrap *ct = new ClapTrap("ClapTrap");
+	ClapTrap ct("ClapTrap");
 	std::cout << "----------Ninja------------" << std::endl;
-	NinjaTrap *nj = new NinjaTrap("NinjaTrap");
-	nj->meleeAttack("Player");
-	nj->rangedAttack("Player");
-	nj->takeDamage(20);
-	nj->beRepaierd(50);
+	NinjaTrap nj("NinjaTrap");
+	nj.meleeAttack("Player");
+	nj.rangedAttack("Player");
+	nj.takeDamage(20);
+	nj.beRepaierd(50);
 
-	nj->ninjaShoebox(*st);
-	nj->ninjaShoebox(*ct);
-	nj->ninjaShoebox(*ft);
-	nj->ninjaShoebox(*nj);
+	nj.ninjaShoebox(st);
+	nj.ninjaShoebox(ct);
+	nj.ninjaShoebox(ft);
+	nj.ninjaShoebox(nj);
 
-	nj->takeDamage(200);
-	delete st;
-	delete ft;
-	delete ct;
+	nj.takeDamage(200);
 }
 

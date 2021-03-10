@@ -65,5 +65,7 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::challengeNewcomer()
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "SC4V-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
 }

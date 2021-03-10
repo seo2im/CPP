@@ -13,7 +13,7 @@ class Squad : public ISquad
 	public :
 		Squad();
 		Squad( const Squad & src );
-		~Squad();
+		virtual ~Squad();
 		Squad & operator=( Squad const & rhs );
 
 		int push(ISpaceMarine *unit);

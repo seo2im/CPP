@@ -6,16 +6,8 @@
 FragTrap::FragTrap()
 {
 }
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
-	this->maxHitPoint = 100;
-	this->hitPoint = 100;
-	this->maxEnergyPoint = 100;
-	this->energyPoint = 100;
-	this->level = 1;
-	this->meleeAttackDamage = 30;
-	this->rangedAttackDamage = 20;
-	this->armorDamageRuduction = 5;
 	std::cout << "FR4G-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
@@ -57,6 +49,8 @@ std::ostream & operator<<( std::ostream & o, FragTrap const & i )
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	semiAttack list[] = {
 		&FragTrap::dance,
 		&FragTrap::provocation,

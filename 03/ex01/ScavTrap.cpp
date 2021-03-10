@@ -42,7 +42,7 @@ meleeAttackDamage(src.meleeAttackDamage), rangedAttackDamage(src.rangedAttackDam
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "SC4V-TP " << this->name << " is Dead" << std::endl;
+	std::cout << "SC4V-TP " << this->name << " is Destructed" << std::endl;
 }
 
 /*
@@ -73,12 +73,16 @@ std::ostream & operator<<( std::ostream & o, ScavTrap const & i )
 
 void ScavTrap::rangedAttack(std::string const &target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "SC4V-TP " << this->name << " attacks " << target 
 	<< " at range, causing " << this->rangedAttackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::meleeAttack(std::string const &target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "SC4V-TP " << this->name << " attacks " << target 
 	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!" << std::endl;
 }
@@ -87,6 +91,8 @@ void ScavTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
+	if (this->hitPoint <= 0)
+		return ;
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
 		std::cout << "SC4V-TP " << this->name << " armored!"<< std::endl;
@@ -98,7 +104,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 	}
 
 	if (this->hitPoint <= 0)
-		delete this;
+		std::cout << "SC4V-TP " << this->name << " is Dead" << std::endl;
 }
 
 void ScavTrap::beRepaierd(unsigned int amount)
@@ -116,6 +122,8 @@ void ScavTrap::beRepaierd(unsigned int amount)
 
 void ScavTrap::challengeNewcomer()
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "SC4V-TP " << this->name << " challnge : " << ScavTrap::challenge[rand() % 5] << std::endl;
 }
 

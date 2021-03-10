@@ -57,6 +57,8 @@ std::ostream & operator<<( std::ostream & o, FragTrap const & i )
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	semiAttack list[] = {
 		&FragTrap::dance,
 		&FragTrap::provocation,

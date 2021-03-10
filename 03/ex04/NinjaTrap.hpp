@@ -10,7 +10,7 @@ class NinjaTrap : virtual public ClapTrap
 		NinjaTrap();
 		NinjaTrap(std::string name);
 		NinjaTrap( const NinjaTrap & src );
-		~NinjaTrap();
+		virtual ~NinjaTrap();
 		NinjaTrap & operator=( NinjaTrap const & rhs );
 
 		void ninjaShoebox(ClapTrap &trap);

@@ -11,6 +11,7 @@ FragTrap::FragTrap(std::string name)
 : hitPoint(FragTrap::maxHitPoint), energyPoint(FragTrap::maxEnergyPoint),
 level(1), meleeAttackDamage(20), rangedAttackDamage(15), armorDamageRuduction(3)
 {
+	srand(time(0));
 	this->name = name;
 	std::cout << "FR4G-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << FragTrap::maxHitPoint << ")\n"
@@ -35,7 +36,7 @@ level(src.level), name(src.name), meleeAttackDamage(src.meleeAttackDamage), rang
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FR4G-TP " << this->name << " is Dead\n" << std::endl;
+	std::cout << "FR4G-TP " << this->name << " is Destructed\n" << std::endl;
 }
 
 /*
@@ -66,12 +67,16 @@ std::ostream & operator<<( std::ostream & o, FragTrap const & i )
 
 void FragTrap::rangedAttack(std::string const & target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "FR4G-TP " << this->name << " attacks " << target 
 	<< " at range, causing " << this->rangedAttackDamage << " points of damage!\n" << std::endl;
 }
 
 void FragTrap::meleeAttack(std::string const &target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "FR4G-TP " << this->name << " attacks " << target 
 	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!\n" << std::endl;
 }
@@ -80,6 +85,8 @@ void FragTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
+	if (this->hitPoint <= 0)
+		return ;
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
 		std::cout << "FR4G-TP " << this->name << " armored!"<< std::endl;		
@@ -90,12 +97,14 @@ void FragTrap::takeDamage(unsigned int amount)
 		<< " damaged, HP " << (this->hitPoint >= 0 ? this->hitPoint : 0) <<  " remained!\n" << std::endl;
 		
 		if (this->hitPoint <= 0)
-			delete this;
+			std::cout << this->name << " is Dead!!" << std::endl;
 	}
 }
 
 void FragTrap::beRepaierd(unsigned int amount)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	this->hitPoint += amount;
 	this->energyPoint += amount;
 	if (this->hitPoint > FragTrap::maxHitPoint)
@@ -109,6 +118,8 @@ void FragTrap::beRepaierd(unsigned int amount)
 
 void FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	semiAttack list[] = {
 		&FragTrap::dance,
 		&FragTrap::provocation,

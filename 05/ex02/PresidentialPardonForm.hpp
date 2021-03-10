@@ -13,7 +13,7 @@ class PresidentPardonForm: public Form
 	public :
 		PresidentPardonForm(std::string const &target);
 		PresidentPardonForm( const PresidentPardonForm & src );
-		~PresidentPardonForm();
+		virtual ~PresidentPardonForm();
 		PresidentPardonForm & operator=( PresidentPardonForm const & rhs );
 
 		void excute(Bureaucrat const &executor) const;

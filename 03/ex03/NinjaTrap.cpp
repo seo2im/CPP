@@ -60,21 +60,29 @@ std::ostream & operator<<( std::ostream & o, NinjaTrap const & i )
 
 void NinjaTrap::ninjaShoebox(ClapTrap &trap)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "ClapTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap &trap)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "FragTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(ScavTrap &trap)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "ScavTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 
 void NinjaTrap::ninjaShoebox(NinjaTrap &trap)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << "NinjaTrap " << trap.getName() << " in the Shoebox" << std::endl << std::endl;
 }
 

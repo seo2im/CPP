@@ -8,16 +8,17 @@ SuperTrap::SuperTrap()
 {
 }
 
-SuperTrap::SuperTrap(std::string name) : ClapTrap(name), NinjaTrap(name), FragTrap(name)
+SuperTrap::SuperTrap(std::string name) : ClapTrap(name, 100, 120, 100, 120, 1, 60, 20, 5), NinjaTrap(name), FragTrap(name) 
 {
-	this->maxHitPoint = this->FragTrap::maxHitPoint;
-	this->hitPoint = this->FragTrap::hitPoint;;
+	this->name = name;
 	this->maxEnergyPoint = this->NinjaTrap::maxEnergyPoint;
 	this->energyPoint = this->NinjaTrap::energyPoint;
-	this->level = 1;
 	this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
+	this->maxHitPoint = this->FragTrap::maxHitPoint;
+	this->hitPoint = this->FragTrap::hitPoint;;
 	this->rangedAttackDamage = this->FragTrap::rangedAttackDamage;
 	this->armorDamageRuduction = this->FragTrap::armorDamageRuduction;
+	this->level = 1;
 	std::cout << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
 	<< "Energy : "   << this->energyPoint << "(Max : " << this->maxEnergyPoint << ")\n"
@@ -68,4 +69,17 @@ void SuperTrap::rangedAttack(std::string const &target)
 void SuperTrap::meleeAttack(std::string const &target)
 {
 	NinjaTrap::meleeAttack(target);
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+
+int	SuperTrap::getHitPoint() const
+{
+	return this->hitPoint;
+}
+int SuperTrap::getEnergyPoint() const
+{
+	return this->energyPoint;
 }

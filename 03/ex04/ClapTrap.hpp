@@ -8,7 +8,8 @@ class ClapTrap
 {
 	public :
 		ClapTrap();
-		ClapTrap(std::string name);
+		ClapTrap(std::string name, int maxHitPoint, int maxEnergyPoint, int hitPoint, int energyPoint, int level,
+			int meleeAttackDamage, int rangedAttackDamage, int armorDamageRuduction);
 		ClapTrap( const ClapTrap & src );
 		ClapTrap & operator=( ClapTrap const & rhs );
 		virtual ~ClapTrap();

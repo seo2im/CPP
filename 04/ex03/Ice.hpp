@@ -9,7 +9,7 @@ class Ice : public AMateria
 	public :
 		Ice();
 		Ice(Ice const &other);
-		~Ice();
+		virtual ~Ice();
 		Ice & operator=( Ice const & rhs );
 
 		AMateria *clone() const;

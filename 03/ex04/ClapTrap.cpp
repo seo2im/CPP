@@ -8,9 +8,10 @@ ClapTrap::ClapTrap()
 {
 }
 
-ClapTrap::ClapTrap(std::string name)
-: maxHitPoint(0), maxEnergyPoint(0), hitPoint(0), energyPoint(0), level(0),
-meleeAttackDamage(0), rangedAttackDamage(0), armorDamageRuduction(0)
+ClapTrap::ClapTrap(std::string name, int maxHitPoint, int maxEnergyPoint, int hitPoint, int energyPoint, int level,
+int meleeAttackDamage, int rangedAttackDamage, int armorDamageRuduction)
+: maxHitPoint(maxHitPoint), maxEnergyPoint(maxEnergyPoint), hitPoint(hitPoint), energyPoint(energyPoint), level(level),
+meleeAttackDamage(meleeAttackDamage), rangedAttackDamage(rangedAttackDamage), armorDamageRuduction(armorDamageRuduction)
 {
 	std::cout << "ClapTrap is Made" << std::endl << std::endl;
 	this->name = name;
@@ -35,7 +36,7 @@ ClapTrap::~ClapTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ClapTrap &				ClapTrap::operator=( ClapTrap const & rhs )
+ClapTrap & ClapTrap::operator=( ClapTrap const & rhs )
 {
 	this->hitPoint = rhs.hitPoint;
 	this->energyPoint = rhs.energyPoint;
@@ -59,12 +60,16 @@ std::ostream & operator<<( std::ostream & o, ClapTrap const & i )
 
 void ClapTrap::rangedAttack(std::string const &target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << this->name << " attacks " << target 
 	<< " at range, causing " << this->rangedAttackDamage << " points of damage!" << std::endl << std::endl;
 }
 
 void ClapTrap::meleeAttack(std::string const &target)
 {
+	if (this->hitPoint <= 0)
+		return ;
 	std::cout << this->name << " attacks " << target 
 	<< " at melee, causing " << this->meleeAttackDamage << " points of damage!" << std::endl << std::endl;
 }
@@ -73,6 +78,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	int damage;
 
+	if (this->hitPoint <= 0)
+		return ;
 	damage = amount - this->armorDamageRuduction;
 	if (damage <= 0)
 		std::cout << this->name << " armored!"<< std::endl << std::endl;
@@ -84,7 +91,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	}
 
 	if (this->hitPoint <= 0)
-		delete this;
+		std::cout << "ClapTrap " << this->name << " is Dead" << std::endl << std::endl;
 }
 
 void ClapTrap::beRepaierd(unsigned int amount)
