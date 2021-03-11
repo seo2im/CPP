@@ -92,8 +92,7 @@ void Bureaucrat::signForm(Form &form)
 	else
 	{
 		std::cout << " cannot signs Form:" << form.getName()
-		<< " because " << "not yet graded" << std::endl; 
-		form.beSigned(*this);
+		<< " because " << "not yet graded" << std::endl;
 	}
 }
 
