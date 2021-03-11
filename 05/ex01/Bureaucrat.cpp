@@ -41,6 +41,9 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat & Bureaucrat::operator=( Bureaucrat const & rhs )
 {
+	/*
+		assume Breaucrat must be refecence assigning, never use new!
+	*/
 	if ( this != &rhs )
 	{
 		Bureaucrat tmp(rhs);

@@ -6,14 +6,10 @@
 int main()
 {
 	Bureaucrat sb("sb", 120);
-	Bureaucrat rb("t2", 30);
-	Bureaucrat pb("t2", 3);
-	ShrubberyCreationForm s("targetS");
-	RobotomyRequestForm r("targetR");
-	PresidentPardonForm p("targetP");
-
+	ShrubberyCreationForm s("targetS"); //145, 37
 	try
 	{
+		s.beSigned(sb);
 		sb.signForm(s);
 		sb.executeForm(s);
 	}
@@ -21,8 +17,14 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n\n";
+
+	Bureaucrat rb("t2", 30);
+	RobotomyRequestForm r("targetR"); //72, 45
 	try
 	{
+		r.beSigned(rb);
 		rb.signForm(r);
 		rb.executeForm(r);
 	}
@@ -30,8 +32,14 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n\n";
+
+	Bureaucrat pb("t2", 3);
+	PresidentPardonForm p("targetP"); //25, 5
 	try
 	{
+		p.beSigned(pb);
 		pb.signForm(p);
 		pb.executeForm(p);
 	}

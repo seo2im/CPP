@@ -7,7 +7,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("", 1, 1)
 {
 }
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target)
-	: Form("Shubeery Creation", 145, 137)
+: Form("Shubeery Creation", 145, 137)
 {
 	this->target = target;	
 }
@@ -45,8 +45,9 @@ void ShrubberyCreationForm::excute(Bureaucrat const &executor) const
 {
 	Form::excute(executor);	
 	
+	std::string name = (this->target + "_shrubbery");
 	std::ofstream file;
-	file.open("Ascii tree", std::ios::out | std::ios::app);
+	file.open(name, std::ios::out | std::ios::trunc);
 	if (file.is_open())
 	{
 		file << "   #   \n";
@@ -56,4 +57,9 @@ void ShrubberyCreationForm::excute(Bureaucrat const &executor) const
 		file << "   |   \n";
 		file.close();
 	}
+	else
+	{
+		std::cout << "file is not open" << std::endl;
+	}
+	
 }

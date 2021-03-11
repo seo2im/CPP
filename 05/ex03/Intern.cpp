@@ -1,6 +1,27 @@
 #include "Intern.hpp"
 
 /*
+** ------------------------------- ATTRIBUTER --------------------------------
+*/
+static Form* makePr(std::string const &target)
+{
+	return (new PresidentPardonForm(target));
+}
+static Form* makeRb(std::string const &target)
+{
+	return (new RobotomyRequestForm(target));
+}
+static Form* makeSb(std::string const &target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+Format format[3] = {
+	{"presidential pardon", &makePr},
+	{"robotomy request", &makeRb},
+	{"shrubberry creation", &makeSb}
+};
+
+/*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 Intern::Intern()
@@ -38,21 +59,14 @@ Intern & Intern::operator=( Intern const & rhs )
 
 Form *Intern::makeForm(std::string const &name, std::string const &target)
 {
-	if ("President Pardon Form" == name)
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Intern creates " << name << std::endl;
-		return (new PresidentPardonForm(target));
+		if (name.compare(format[i].name) == 0)
+		{
+			std::cout << "Intern creates " << name << std::endl;
+			return format[i].func(target);
+		}
 	}
-	else if ("Robotomy Request Form" == name)
-	{
-		std::cout << "Intern creates " << name << std::endl;
-		return (new RobotomyRequestForm(target));
-	}
-	else if ("Shubeery Creation" == name)
-	{
-		std::cout << "Intern creates " << name << std::endl;
-		return (new ShrubberyCreationForm(target));
-	}
-	std::cout << "Not correct name! : " << name << std::endl;
+	std::cout << "No form of " << name << std::endl;
 	return (NULL);
 }

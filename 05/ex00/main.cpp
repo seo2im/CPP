@@ -9,6 +9,7 @@ int main()
 	test.decreaseGrade();
 	std::cout << test << std::endl;
 
+
 	try
 	{
 		Bureaucrat lowErr("lowErr", 0);

@@ -31,7 +31,7 @@ class Form
 		class UnsignedFormException: public std::exception {
 			virtual const char* what() const throw();
 		};
-		void excute(Bureaucrat const &executor) const;
+		virtual void excute(Bureaucrat const &executor) const = 0;
 
 		std::string getName() const;
 		int getSignGrade() const;

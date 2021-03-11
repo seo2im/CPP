@@ -42,10 +42,7 @@ Form::~Form()
 Form & Form::operator=( Form const & rhs )
 {
 	if ( this != &rhs )
-	{
-		Form tmp(rhs);
-		*this = tmp;
-	}
+		this->isSigned = rhs.isSigned;
 	return *this;
 }
 

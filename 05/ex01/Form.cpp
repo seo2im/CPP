@@ -41,6 +41,9 @@ Form::~Form()
 
 Form & Form::operator=( Form const & rhs )
 {
+	/*
+		assume Breaucrat must be refecence assigning, never use new!
+	*/
 	if ( this != &rhs )
 	{
 		Form tmp(rhs);

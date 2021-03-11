@@ -46,7 +46,9 @@ RobotomyRequestForm & RobotomyRequestForm::operator=( RobotomyRequestForm const 
 void RobotomyRequestForm::excute(Bureaucrat const &executor) const
 {
 	Form::excute(executor);
-	if ((rand() % 100) > 50)
+
+	std::cout << "Drilllllll!!!!!!" << std::endl;
+	if ((rand() % 100) >= 50)
 		std::cout << this->target << " has been successfully" << std::endl;
 	else
 		std::cout << this->target << " is a failure" << std::endl;

@@ -5,6 +5,16 @@
 # include "RobotomyRequestForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 
+static Form* makePr(std::string const &target);
+static Form* makeSb(std::string const &target);
+static Form* makeRb(std::string const &target);
+typedef Form* (*func)(std::string const & target);
+typedef struct
+{
+	std::string name;
+	func 		func;
+} Format;
+
 class Intern
 {
 	public : 
