@@ -30,14 +30,15 @@ AMateria::~AMateria()
 /*
 ** --------------------------------- OVERLOAD ---------------------------------
 */
-
+/*
+	What the fuckings this mean....
+"While assigning a Materia to another, copying the type doesn’t make
+sense..."
+*/
 AMateria & AMateria::operator=( AMateria const & rhs )
 {
 	if ( this != &rhs )
-	{
-		this->_type = rhs.getType();
 		this->_xp = rhs.getXP();
-	}
 	return *this;
 }
 

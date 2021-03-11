@@ -40,8 +40,10 @@ Character &	Character::operator=( Character const & rhs )
 	if ( this != &rhs )
 	{
 		this->name = rhs.getName();
+		/* old materia delete */
 		for (int i = 0; i < this->num; i++)
 			delete this->inventory[i];
+		/* must deep copy */
 		for (int i = 0; i < rhs.getNum(); i++)
 			this->equip(rhs.getInventory(i)->clone());
 	}

@@ -27,7 +27,7 @@ Ice::~Ice()
 Ice & Ice::operator=( Ice const & rhs )
 {
 	if ( this != &rhs )
-		*this = rhs;
+		AMateria::operator=(rhs);
 	return *this;
 }
 

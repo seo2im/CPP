@@ -70,6 +70,7 @@ int Squad::push(ISpaceMarine *unit)
 	}
 	else
 	{
+		/* if same in unit, no push*/
 		for (int i = 0; i < this->count; i++)
 		{
 			if (this->units[i] == unit)

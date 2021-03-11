@@ -2,6 +2,11 @@
 #include "AssaultTerminator.hpp"
 #include "Squad.hpp"
 
+void debug()
+{
+	std::cout << "Work!!" << std::endl;
+}
+
 int main()
 {
 	ISpaceMarine* bob = new TacticalMarine;

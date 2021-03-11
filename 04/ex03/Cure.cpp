@@ -25,7 +25,7 @@ Cure::~Cure(){}
 Cure & Cure::operator=( Cure const & rhs )
 {
 	if ( this != &rhs )
-		*this = rhs;
+		AMateria::operator=(rhs);
 	return *this;
 }
 
@@ -35,6 +35,7 @@ Cure & Cure::operator=( Cure const & rhs )
 
 AMateria *Cure::clone() const
 {
+	/* real materia type? */
 	Cure *copy = new Cure(*this);
 	return (copy);
 }

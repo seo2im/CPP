@@ -56,7 +56,11 @@ void MateriaSource::learnMateria(AMateria *m)
 			return ;
 	this->sources[this->num++] = m;
 }
-
+/*
+?? What this mean?
+	"You’ll then be able to create a Materia without knowing it "real" type,
+just a string identifying it"
+*/
 AMateria* MateriaSource::createMateria(std::string const &type)
 {
 	for (int i = 0; i < this->num; i++)

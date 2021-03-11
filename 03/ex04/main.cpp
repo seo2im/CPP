@@ -20,6 +20,9 @@ int main()
 	sp.meleeAttack("Player");
 	sp.rangedAttack("Player");
 	sp.takeDamage(20);
+	sp.takeDamage(20);
+	sp.takeDamage(20);
+	sp.takeDamage(20);
 	sp.beRepaierd(50);
 
 	sp.vaulthunter_dot_exe("Player");
@@ -27,5 +30,7 @@ int main()
 	sp.ninjaShoebox(ft);
 	sp.ninjaShoebox(nj);
 	sp.takeDamage(200);
+
+	std::cout << "----------END------------" << std::endl;
 }
 

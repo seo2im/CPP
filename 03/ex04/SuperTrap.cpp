@@ -8,10 +8,10 @@ SuperTrap::SuperTrap()
 {
 }
 
-SuperTrap::SuperTrap(std::string name) : ClapTrap(name, 100, 120, 100, 120, 1, 60, 20, 5), NinjaTrap(name), FragTrap(name) 
+SuperTrap::SuperTrap(std::string name) : ClapTrap(name, 100, 120, 100, 120, 1, 60, 20, 5) 
 {
 	this->name = name;
-	this->maxEnergyPoint = this->NinjaTrap::maxEnergyPoint;
+	this->maxEnergyPoint = this->NinjaTrap::ClapTrap::maxEnergyPoint;
 	this->energyPoint = this->NinjaTrap::energyPoint;
 	this->meleeAttackDamage = this->NinjaTrap::meleeAttackDamage;
 	this->maxHitPoint = this->FragTrap::maxHitPoint;
