@@ -11,8 +11,11 @@ int main()
 		std::cout << arr[i];
 	std::cout << std::endl;
 
+	Array<int> test = arr;
+	Array<int> test2(test);
+	
 	try {
-		arr[5];
+		test2[5];
 	} catch (const std::exception &e) {
 		std::cerr << e.what() << "\n";
 	}

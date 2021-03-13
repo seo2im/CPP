@@ -3,15 +3,15 @@
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
-PresidentPardonForm::PresidentPardonForm() : Form("", 1, 1)
+PresidentialPardonForm::PresidentialPardonForm() : Form("", 1, 1)
 {
 }
-PresidentPardonForm::PresidentPardonForm(std::string const &target)
-: Form("Robotomy Request Form", 72, 45)
+PresidentialPardonForm::PresidentialPardonForm(std::string const &target)
+: Form("Robotomy Request Form", 25, 5)
 {
 	this->target = target;
 }
-PresidentPardonForm::PresidentPardonForm( const PresidentPardonForm & src )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
 : Form(src), target(src.target)
 {
 }
@@ -20,7 +20,7 @@ PresidentPardonForm::PresidentPardonForm( const PresidentPardonForm & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-PresidentPardonForm::~PresidentPardonForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
@@ -28,11 +28,11 @@ PresidentPardonForm::~PresidentPardonForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-PresidentPardonForm & PresidentPardonForm::operator=( PresidentPardonForm const & rhs )
+PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if ( this != &rhs )
 	{
-		PresidentPardonForm tmp(rhs);
+		PresidentialPardonForm tmp(rhs);
 		*this = tmp;
 	}
 	return *this;
@@ -42,7 +42,7 @@ PresidentPardonForm & PresidentPardonForm::operator=( PresidentPardonForm const 
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void PresidentPardonForm::excute(Bureaucrat const &executor) const
+void PresidentialPardonForm::excute(Bureaucrat const &executor) const
 {
 	Form::excute(executor);
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;

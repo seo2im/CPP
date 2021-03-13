@@ -5,7 +5,7 @@
 */
 static Form* makePr(std::string const &target)
 {
-	return (new PresidentPardonForm(target));
+	return (new PresidentialPardonForm(target));
 }
 static Form* makeRb(std::string const &target)
 {

@@ -1,40 +1,37 @@
 #include <iostream>
 
 template<typename T>
-void iter(T *arr, size_t size, void(*f)(T const &e))
+void iter(T *arr, size_t size, void(*f)(T &e))
 {
 	for (size_t i = 0; i < size; i++)
 		(*f)(arr[i]);
 }
 
-template<typename T>
-void f(T &e)
+template<typename T> void f(T &e)
 {
-	std::cout << e << " ";
+	std::cout << e;
+}
+template<> void f<int>(int &e) {
+	std::cout << ++e << std::endl;
+}
+template<> void f<float>(float &e) {
+	std::cout << e << std::endl;
 }
 
 int main(void)
 {
-	int intR[5] = { 0, 1, 2, 3, 4 };
-	iter(intR, 5, &f);
+	int intR[5] = { 10, 252, -25, 6, 5 };
+	iter<int>(intR, 5, f);
 	std::cout << std::endl;
 
-	float floatR[5] = { 0.0f, 1.1f, 2.2f, 3.3f, 4.4f };
-	iter(floatR, 5, &f);
+	float floatR[5] = { 25, -1.1f, 342.252, 0.0f, 25.f };
+	iter<float>(floatR, 5, f);
 	std::cout << std::endl;
 
-	double doubleR[5] = { 0.00, 1.11, 2.22, 3.33, 4.44 };
-	iter(doubleR, 5, &f);
-	std::cout << std::endl;
-
-	bool boolR[2] = { false, true };
-	iter(boolR, 2, &f);
-	std::cout << std::endl;
-
-	std::string stringR[5] = { "phrase 1", "phrase 2", "templates", "are", "fun" };
-	iter(stringR, 5, &f); std::cout << std::endl;
-	iter(stringR, 2, &f); std::cout << std::endl;
-	iter(stringR, 0, &f); std::cout << std::endl;
+	std::string stringR[5] = { "Why ", "This ", "Make", "Umhhhhh... ", "THATHATHA " };
+	iter<std::string>(stringR, 5, f); std::cout << std::endl;
+	iter<std::string>(stringR, 2, f); std::cout << std::endl;
+	iter<std::string>(stringR, 0, f); std::cout << std::endl;
 
 	return (0);
 }

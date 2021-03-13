@@ -16,4 +16,5 @@ int main()
 	delete r;
 
 	Form  *n = in.makeForm("sfasf", "Ptarget");
+	(void)n;
 }

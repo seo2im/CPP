@@ -1,7 +1,7 @@
 TARGET = Serilzer
 FLAG = -Wall -Werror -Wextra
 HEADER = -I ./
-SRCS = *.cpp
+SRCS = Serialization.cpp main.cpp
 OBJS = *.o
 CC = clang++
 

@@ -2,6 +2,7 @@
 # define ARRAY_HPP
 # include <exception>
 # include <cctype>
+# include <iostream>
 
 template<typename T>
 class Array
@@ -14,11 +15,12 @@ class Array
 		Array();
 		Array(size_t n);
 		Array(Array<T> const &other);
-		~Array() {};
+		virtual ~Array();
 
+		Array &operator=(Array const & rhs);
 		T &operator[](size_t index);
+		
 		size_t size() const;
-
 		class OverflowException: public std::exception {
 			virtual const char* what() const throw();
 		};

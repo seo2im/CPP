@@ -1,7 +1,7 @@
 TARGET = convertor
 FLAG = -Wall -Werror -Wextra
 HEADER = -I ./
-SRCS = *.cpp
+SRCS = convertor.cpp main.cpp
 OBJS = *.o
 CC = clang++
 

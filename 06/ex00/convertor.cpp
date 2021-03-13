@@ -1,131 +1,87 @@
 #include "convertor.hpp"
 
-static std::string toChar(std::string arg)
+static char toChar(float f)
 {
-	bool isDot = false;
+	char c;
 
-	if (!(arg[0] == '-') && !(arg[0] == '+') && !std::isdigit(arg[0]))
-		return "Impossible";
-	for(size_t i = 1; i < arg.length(); i++)
-	{
-		if (!std::isdigit(arg[i]))
-		{
-			if (arg[i] == '.')
-			{
-				if (!isDot)
-					isDot = true;
-				else
-					return "Impossible";
-			}
-			else
-				return "Impossible";
-			if (arg[i] == 'f' && i == arg.length() - 1)
-				continue;
-			else
-				return "Impossible";
-		}
-		else if (std::isdigit(arg[i]) && isDot)
-			return "Impossible";
-	}
-	int test = std::atoi(arg.c_str());
-	if (test > 128 || test < 0)
-		return "Impossible";
-	if (!std::isprint(test))
-		return "Non displable";
-	std::string s(1, test);
-	return s;
-		
+	if (f == std::numeric_limits<float>::infinity()
+		|| f == -std::numeric_limits<float>::infinity()
+		|| std::isnan(f))
+		throw std::string("impossible");
+	
+	c = static_cast<char>(f);
+	if (!std::isprint(c))
+		throw std::string("Non displable");
+	return c;
 }
-static std::string toInt(std::string arg)
-{
-	bool isDot = false;
 
-	if (!(arg[0] == '-') && !(arg[0] == '+') && !std::isdigit(arg[0]))
-		return "Impossible";
-	for(size_t i = 1; i < arg.length(); i++)
-	{
-		if (!std::isdigit(arg[i]))
-		{
-			if (arg[i] == '.')
-			{
-				if (!isDot)
-					isDot = true;
-				else
-					return "Impossible";
-			}
-			else
-				return "Impossible";
-		}
-	}
-	long check = std::atol(arg.c_str());
-	if (check < -2147483648 || check > 2147483647)
-		return "Overflow";
-	return std::to_string(std::atoi(arg.c_str()));
+static int toInt(float f)
+{
+	if (f == std::numeric_limits<float>::infinity()
+		|| f == -std::numeric_limits<float>::infinity()
+		|| std::isnan(f))
+		throw std::string("Impossilbe");
+	return (static_cast<int>(f));
 }
-static std::string toFloat(std::string arg)
-{
-	bool isDot = false;
 
-	if (arg == "nan" || arg == "inf" || arg == "-inf" || arg == "+inf")
-		return arg + "f";
-	if (arg == "nanf" || arg == "inff" || arg == "-inff" || arg == "+inff")
-		return arg;
-	if (!(arg[0] == '-') && !(arg[0] == '+') && !std::isdigit(arg[0]))
-		return "Impossible";
-	for(size_t i = 1; i < arg.length(); i++)
-	{
-		if (!std::isdigit(arg[i]))
-		{
-			if (arg[i] == '.')
-			{
-				if (!isDot)
-					isDot = true;
-				else
-					return "Impossible";
-			}
-			else
-				return "Impossible";
-			if (arg[i] == 'f')
-			{
-				if (i == arg.length() - 1)
-					continue ;
-				else 
-					return "Impossible";
-			}	
-		}
-	}
-	return std::to_string(std::atof(arg.c_str())) + "f";
+static float toFloat(float f)
+{
+	return static_cast<float>(f);
 }
-static std::string toDouble(std::string arg)
-{
-	bool isDot = false;
 
-	if (arg == "nan" || arg == "inf" || arg == "-inf" || arg == "+inf")
-		return arg;
-	if (!(arg[0] == '-') && !(arg[0] == '+') && !std::isdigit(arg[0]))
-		return "Impossible";
-	for(size_t i = 1; i < arg.length(); i++)
-	{
-		if (!std::isdigit(arg[i]))
-		{
-			if (arg[i] == '.')
-			{
-				if (!isDot)
-					isDot = true;
-				else
-					return "Impossible";
-			}
-			else
-				return "Impossible";
-		}
-	}
-	return std::to_string(std::atof(arg.c_str()));
+static double toDouble(float f)
+{
+	return static_cast<double>(f);
 }
 
 void convertor(std::string arg)
 {
-	std::cout << "char : " << toChar(arg) << std::endl;
-	std::cout << "int : " << toInt(arg) << std::endl;
-	std::cout << "float : " << toFloat(arg) << std::endl;
-	std::cout << "double : " << toDouble(arg) << std::endl;
+	float	f;
+	int		yes;
+
+	try {
+		f = std::stof(arg);
+		yes = 1;
+	} catch (std::exception & e) {
+		std::cout << "Char : impossible" << std::endl;
+		std::cout << "Int : impossible" << std::endl;
+		std::cout << "Float : impossible" << std::endl;
+		std::cout << "Double : impossible" << std::endl;
+		yes = 0;
+	}
+	
+	if (yes == 0)
+		return ;
+
+	try {
+		std::cout << "Char : " << toChar(f) << std::endl;
+	} catch (std::string & e) {
+		std::cout << "Char : " << e << std::endl;
+	}
+
+	try {
+		std::cout << "Int : " << toInt(f) << std::endl;
+	} catch (std::string & e) {
+		std::cout << "Int : " << e << std::endl;
+	}
+
+	try {
+		float tmpF = toFloat(f);
+		if (tmpF - (int)tmpF != (float)0)
+			std::cout << "Float : " << tmpF << "f" << std::endl;
+		else
+			std::cout << "Float : " << tmpF << ".0f" << std::endl;
+	} catch (std::string & e) {
+		std::cout << "Float : " << e << std::endl;
+	}
+
+	try {
+		double tmpD = toDouble(f);
+		if (tmpD - (int)tmpD != (float)0)
+			std::cout << "Float : " << tmpD  << std::endl;
+		else
+			std::cout << "Float : " << tmpD << ".0" << std::endl;
+	} catch (std::string & e) {
+		std::cout << "Double : " << e << std::endl;
+	}
 }

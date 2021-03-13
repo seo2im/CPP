@@ -1,29 +1,69 @@
 #include "span.hpp"
 #include <iostream>
 
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+Span::Span()
+{
+	this->size = 0;
+	this->list = nullptr;
+}
+
 Span::Span(unsigned int const size)
 {
 	this->list = new int[size];
 	this->size = size;
 	this->cursor = -1;
 }
+
+Span::Span(const Span & src)
+{
+	if (src.size != 0)
+	{
+		this->list = new int[src.size];
+		for (unsigned int i = 0; i < src.size; i++)
+			this->list[i] = src.list[i];
+	}
+	this->size = src.size;
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
 Span::~Span()
 {
-	delete this->list;
+	delete [] this->list;
 }
 
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
 
-unsigned int Span::length() const
+Span & Span::operator=(Span const & rhs)
 {
-	return this->size;
+	if ( this != &rhs )
+	{
+		if (this->list)
+			delete [] this->list;
+		this->size = rhs.size;
+		this->list = new int[rhs.size];
+		for (unsigned int i = 0; i < rhs.size; i++)
+			this->list[i] = rhs.list[i];
+	}
+	return *this;
 }
 
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
 
 void Span::addNumber(int n)
 {
 	if (this->size - 1 == this->cursor)
 		return ;
-	for (int i = 0; i < this->size; i++)
+	for (unsigned int i = 0; i < this->size; i++)
 	{
 		if (this->list[i] == n)
 			throw Span::AddNumberExecption();
@@ -33,6 +73,7 @@ void Span::addNumber(int n)
 		std::cout << this->list[i] << " ";
 	std::cout << std::endl;
 }
+
 int Span::shortestSpan()
 {
 	int diff;
@@ -40,9 +81,9 @@ int Span::shortestSpan()
 	diff = std::abs(this->list[0] - this->list[1]);
 	if (this->size < 2)
 		throw Span::SpanException();
-	for (int i = 0; i <= this->cursor; i++)
+	for (unsigned int i = 0; i <= this->cursor; i++)
 	{
-		for (int j = i + 1; j <= this->cursor; j++)
+		for (unsigned int j = i + 1; j <= this->cursor; j++)
 		{
 			if (diff > std::abs(this->list[i] - this->list[j]))
 				diff = std::abs(this->list[i] - this->list[j]);
@@ -57,9 +98,9 @@ int Span::longestSpan()
 	diff = std::abs(this->list[0] - this->list[1]);
 	if (this->size < 2)
 		throw Span::SpanException();
-	for (int i = 0; i <= this->cursor; i++)
+	for (unsigned int i = 0; i <= this->cursor; i++)
 	{
-		for (int j = i + 1; j <= this->cursor; j++)
+		for (unsigned int j = i + 1; j <= this->cursor; j++)
 		{
 			if (diff < std::abs(this->list[i] - this->list[j]))
 				diff = std::abs(this->list[i] - this->list[j]);
@@ -68,6 +109,18 @@ int Span::longestSpan()
 	return diff;
 }
 
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+unsigned int Span::length() const
+{
+	return this->size;
+}
+
+/*
+** --------------------------------- EXCEPTION --------------------------------
+*/
 
 const char* Span::AddNumberExecption::what() const throw()
 {

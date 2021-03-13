@@ -6,16 +6,18 @@
 */
 void *serialize(void)
 {
-	std::string alphabet = "abcdefghijklmopqrstuvxyz";
-	int alphabetLength = alphabet.length();
+	std::string word = "abcdefghijklmopqrstuvxyz0123456789";
+	int wordLength = word.length();
 	char *raw;
 
+
+	srand(time(NULL));
 	raw = new char[20];
 	for (int i = 0; i < 8; i++)
-		raw[i] = alphabet[rand() % alphabetLength];
+		raw[i] = word[rand() % wordLength];
 	*reinterpret_cast<int*>(raw + 8) = rand() % 20000;
 	for (int i = 0; i < 8; i++)
-		raw[i + 12] = alphabet[rand() % alphabetLength];
+		raw[i + 12] = word[rand() % wordLength];
 	return (raw);
 }
 

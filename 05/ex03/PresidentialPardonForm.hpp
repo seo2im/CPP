@@ -4,17 +4,17 @@
 # include <fstream>
 # include "Form.hpp"
 
-class PresidentPardonForm: public Form
+class PresidentialPardonForm: public Form
 {
 	private :
 		std::string target;
-		PresidentPardonForm();
+		PresidentialPardonForm();
 		
 	public :
-		PresidentPardonForm(std::string const &target);
-		PresidentPardonForm( const PresidentPardonForm & src );
-		virtual ~PresidentPardonForm();
-		PresidentPardonForm & operator=( PresidentPardonForm const & rhs );
+		PresidentialPardonForm(std::string const &target);
+		PresidentialPardonForm( const PresidentialPardonForm & src );
+		virtual ~PresidentialPardonForm();
+		PresidentialPardonForm & operator=( PresidentialPardonForm const & rhs );
 
 		void excute(Bureaucrat const &executor) const;
 };

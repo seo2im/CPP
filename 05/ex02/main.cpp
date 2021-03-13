@@ -36,7 +36,7 @@ int main()
 	std::cout << "\n\n";
 
 	Bureaucrat pb("t2", 3);
-	PresidentPardonForm p("targetP"); //25, 5
+	PresidentialPardonForm p("targetP"); //25, 5
 	try
 	{
 		p.beSigned(pb);

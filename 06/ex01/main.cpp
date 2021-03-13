@@ -3,7 +3,6 @@
 
 int main()
 {
-
 	void *raw = serialize();
 	Data *data = deserialize(raw);
 

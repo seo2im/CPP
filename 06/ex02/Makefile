@@ -1,7 +1,7 @@
 TARGET = Identify
 FLAG = -Wall -Werror -Wextra
 HEADER = -I ./
-SRCS = *.cpp
+SRCS = Identify.cpp main.cpp
 OBJS = *.o
 CC = clang++
 

@@ -4,6 +4,8 @@
 # include <iostream>
 # include <cstdlib>
 # include <cctype>
+# include <limits>
+# include <cmath>
 
 void convertor(std::string arg);
 
