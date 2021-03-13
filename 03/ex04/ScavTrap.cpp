@@ -15,7 +15,7 @@ std::string ScavTrap::challenge[5] = {
 ScavTrap::ScavTrap()
 {
 }
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 100, 50, 1, 20, 15, 3)
 {
 	std::cout << "SC4V-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"

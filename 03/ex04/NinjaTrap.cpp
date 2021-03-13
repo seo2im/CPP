@@ -7,7 +7,7 @@
 NinjaTrap::NinjaTrap()
 {
 }
-NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 60, 120, 120, 1, 60, 5, 0)
+NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name, 60, 120, 60, 120, 1, 60, 5, 0)
 {
 	std::cout << "FR4G-TP " << this->name << "`s properties\n"
 	<< "HP : " << this->hitPoint << "(Max : " << this->maxHitPoint << ")\n"
