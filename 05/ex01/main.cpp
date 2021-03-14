@@ -7,7 +7,7 @@ int main()
 	std::cout << f1 << std::endl;
 	try
 	{
-		f1.beSigned(t1);
+		t1.signForm(f1);
 	}
 	catch(std::exception const &e)
 	{
@@ -30,18 +30,11 @@ int main()
 	std::cout << f2 << std::endl;
 	try
 	{
-		f2.beSigned(t2);
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	try
-	{
 		t2.signForm(f2);
 	}
 	catch(std::exception const &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	
 }

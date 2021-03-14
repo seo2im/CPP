@@ -88,11 +88,17 @@ void Bureaucrat::signForm(Form &form)
 {
 	std::cout << "Bureaucrat:" << this->getName();
 	if (form.IsSigned())
-		std::cout << " signs Form:" << form.getName() << std::endl;
+		std::cout << "cannot signs Form:" << form.getName() 
+		<< " because already signend" << std::endl;
 	else
 	{
-		std::cout << " cannot signs Form:" << form.getName()
-		<< " because " << "not yet graded" << std::endl;
+		try {
+			form.beSigned(*this);
+			std::cout << " signed" << std::endl;
+		} catch (std::exception & e){
+			std::cout << " cannot signs Form:" << form.getName()
+			<< " because " << e.what() << std::endl;
+		}
 	}
 }
 

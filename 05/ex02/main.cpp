@@ -6,15 +6,17 @@
 int main()
 {
 	Bureaucrat sb("sb", 120);
+	Bureaucrat sb2("sb", 146);
 	ShrubberyCreationForm s("targetS"); //145, 37
-	try
-	{
-		s.beSigned(sb);
+	try {
 		sb.signForm(s);
 		sb.executeForm(s);
+	} catch(std::exception const &e) {
+		std::cerr << e.what() << std::endl;
 	}
-	catch(std::exception const &e)
-	{
+	try {
+		sb2.executeForm(s);
+	} catch(std::exception const &e) {
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -22,14 +24,10 @@ int main()
 
 	Bureaucrat rb("t2", 30);
 	RobotomyRequestForm r("targetR"); //72, 45
-	try
-	{
-		r.beSigned(rb);
+	try {
 		rb.signForm(r);
 		rb.executeForm(r);
-	}
-	catch(std::exception const &e)
-	{
+	} catch(std::exception const &e) {
 		std::cerr << e.what() << std::endl;
 	}
 
@@ -37,14 +35,17 @@ int main()
 
 	Bureaucrat pb("t2", 3);
 	PresidentialPardonForm p("targetP"); //25, 5
-	try
-	{
-		p.beSigned(pb);
+	try {
 		pb.signForm(p);
 		pb.executeForm(p);
+	} catch(std::exception const &e) {
+		std::cerr << e.what() << std::endl;
 	}
-	catch(std::exception const &e)
-	{
+
+	PresidentialPardonForm p2("Not OK");
+	try {
+		pb.executeForm(p2);
+	} catch(std::exception const &e) {
 		std::cerr << e.what() << std::endl;
 	}
 }
