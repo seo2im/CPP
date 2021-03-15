@@ -3,13 +3,19 @@
 static char toChar(float f)
 {
 	char c;
+	int d;
 
+	d = static_cast<int>(f);
 	if (f == std::numeric_limits<float>::infinity()
 		|| f == -std::numeric_limits<float>::infinity()
-		|| std::isnan(f))
+		|| std::isnan(f)
+		|| f - static_cast<float>(d) != 0.0f)
 		throw std::string("impossible");
 	
+
+	
 	c = static_cast<char>(f);
+	
 	if (!std::isprint(c))
 		throw std::string("Non displable");
 	return c;
@@ -17,6 +23,8 @@ static char toChar(float f)
 
 static int toInt(float f)
 {
+	if (f > 2147483647 || f < -21474834648)
+		throw std::string("Overflow");
 	if (f == std::numeric_limits<float>::infinity()
 		|| f == -std::numeric_limits<float>::infinity()
 		|| std::isnan(f))
@@ -56,13 +64,13 @@ void convertor(std::string arg)
 	try {
 		std::cout << "Char : " << toChar(f) << std::endl;
 	} catch (std::string & e) {
-		std::cout << "Char : " << e << std::endl;
+		std::cout << e << std::endl;
 	}
 
 	try {
 		std::cout << "Int : " << toInt(f) << std::endl;
 	} catch (std::string & e) {
-		std::cout << "Int : " << e << std::endl;
+		std::cout << e << std::endl;
 	}
 
 	try {
@@ -77,10 +85,11 @@ void convertor(std::string arg)
 
 	try {
 		double tmpD = toDouble(f);
+		std::cout.precision(5);
 		if (tmpD - (int)tmpD != (float)0)
-			std::cout << "Float : " << tmpD  << std::endl;
+			std::cout << "Double : " << tmpD  << std::endl;
 		else
-			std::cout << "Float : " << tmpD << ".0" << std::endl;
+			std::cout << "Double : " << tmpD << ".0" << std::endl;
 	} catch (std::string & e) {
 		std::cout << "Double : " << e << std::endl;
 	}
