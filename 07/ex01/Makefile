@@ -1,7 +1,7 @@
 TARGET = Iter
 FLAG = -Wall -Werror -Wextra
-SRCS = iter.cpp
-OBJS = iter.o
+SRCS = main.cpp
+OBJS = main.o
 CC = clang++
 
 all : $(TARGET)

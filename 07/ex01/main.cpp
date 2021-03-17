@@ -1,12 +1,6 @@
-#include <iostream>
+#include "Iter.hpp"
 
-template<typename T>
-void iter(T *arr, size_t size, void(*f)(T &e))
-{
-	for (size_t i = 0; i < size; i++)
-		(*f)(arr[i]);
-}
-
+/* instantiated function */
 template<typename T> void f(T &e)
 {
 	std::cout << e;
@@ -15,7 +9,7 @@ template<> void f<int>(int &e) {
 	std::cout << ++e << std::endl;
 }
 template<> void f<float>(float &e) {
-	std::cout << e << std::endl;
+	std::cout << e - 1.0f << std::endl;
 }
 
 int main(void)

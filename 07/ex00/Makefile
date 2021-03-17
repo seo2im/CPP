@@ -1,7 +1,7 @@
 TARGET = whatever
 FLAG = -Wall -Werror -Wextra
-SRCS = whatever.cpp
-OBJS = whatever.o
+SRCS = main.cpp
+OBJS = main.o
 CC = clang++
 
 all : $(TARGET)

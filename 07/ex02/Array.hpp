@@ -8,19 +8,19 @@ template<typename T>
 class Array
 {
 	private :
-		size_t len;
+		unsigned int len;
 		T *e;
 	
 	public :
 		Array();
-		Array(size_t n);
+		Array(unsigned int n);
 		Array(Array<T> const &other);
 		virtual ~Array();
 
 		Array &operator=(Array const & rhs);
-		T &operator[](size_t index);
+		T &operator[](unsigned int index);
 		
-		size_t size() const;
+		unsigned int size() const;
 		class OverflowException: public std::exception {
 			virtual const char* what() const throw();
 		};

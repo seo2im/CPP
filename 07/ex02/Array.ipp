@@ -1,3 +1,4 @@
+// ref https://web.mst.edu/~cpp/common/CPPguides_list.html
 #include "Array.hpp"
 
 /*
@@ -11,7 +12,7 @@ Array<T>::Array()
 }
 
 template<typename T>
-Array<T>::Array(size_t n)
+Array<T>::Array(unsigned int n)
 {
 	this->len = n;
 	this->e = new T[n]();
@@ -23,7 +24,7 @@ Array<T>::Array(Array const &src)
 	if (src.len > 0)
 	{
 		this->e = new T[src.len]();
-		for(size_t i = 0; i < src.size(); i++)
+		for(unsigned int i = 0; i < src.size(); i++)
 			this->e[i] = src.e[i];
 	}
 	this->len = src.size();
@@ -50,14 +51,14 @@ Array<T> & Array<T>::operator=(Array<T> const & rhs )
 			delete [] this->e;	
 		this->len = rhs.size();
 		this->e = new T[this->len]();
-		for (size_t i = 0; i < this->len; i++)
+		for (unsigned int i = 0; i < this->len; i++)
 			this->e[i] = rhs.e[i];
 	}
 	return *this;
 }
 
 template<typename T>
-T &Array<T>::operator[](size_t index)
+T &Array<T>::operator[](unsigned int index)
 {
 	if (index >= this->len)
 		throw Array::OverflowException();
@@ -69,7 +70,7 @@ T &Array<T>::operator[](size_t index)
 */
 
 template<typename T>
-size_t Array<T>::size() const
+unsigned int Array<T>::size() const
 {
 	return this->len;
 }

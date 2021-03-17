@@ -64,9 +64,10 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 
 void Bureaucrat::increaseGrade()
 {
-	this->grade++;
-	if (this->grade > 150)
+	int grade = this->grade + 1;
+	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	this->grade  = grade;
 }
 void Bureaucrat::decreaseGrade()
 {

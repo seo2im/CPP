@@ -10,6 +10,7 @@ RobotomyRequestForm::RobotomyRequestForm() : Form("", 1, 1)
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target)
 : Form("Robotomy Request Form", 72, 45)
 {
+	srand(time(NULL));
 	this->target = target;
 }
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src )
