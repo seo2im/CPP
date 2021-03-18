@@ -1,6 +1,5 @@
 #include "easyfind.hpp"
-#include <vector>
-#include <list>
+
 
 
 int main()
@@ -33,4 +32,11 @@ int main()
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	
+	/* stack */
+	std::stack<int> s;
+	s.push(1);
+	s.push(2);
+	s.push(3);
+	std::cout << easyfind(s, 2) << std::endl;
 }

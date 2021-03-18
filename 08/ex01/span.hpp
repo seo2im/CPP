@@ -2,6 +2,7 @@
 # define SPAN_HPP
 # include <exception>
 # include <cmath>
+# include <iostream>
 
 class Span
 {
@@ -16,6 +17,7 @@ class Span
 		Span(const Span & src);
 		~Span();
 		Span & operator=(Span const & rhs);
+		int & operator[](unsigned int index);
 
 		void addNumber(int n);
 		int shortestSpan();
@@ -30,5 +32,7 @@ class Span
 			virtual const char* what() const throw();
 		};
 };
+
+std::ostream &operator<<(std::ostream &out, Span &sp);
 
 #endif

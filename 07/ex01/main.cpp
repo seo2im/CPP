@@ -1,31 +1,20 @@
 #include "Iter.hpp"
 
-/* instantiated function */
-template<typename T> void f(T &e)
+class Awesome
 {
-	std::cout << e;
-}
-template<> void f<int>(int &e) {
-	std::cout << ++e << std::endl;
-}
-template<> void f<float>(float &e) {
-	std::cout << e - 1.0f << std::endl;
-}
-
-int main(void)
-{
-	int intR[5] = { 10, 252, -25, 6, 5 };
-	iter<int>(intR, 5, f);
-	std::cout << std::endl;
-
-	float floatR[5] = { 25, -1.1f, 342.252, 0.0f, 25.f };
-	iter<float>(floatR, 5, f);
-	std::cout << std::endl;
-
-	std::string stringR[5] = { "Why ", "This ", "Make", "Umhhhhh... ", "THATHATHA " };
-	iter<std::string>(stringR, 5, f); std::cout << std::endl;
-	iter<std::string>(stringR, 2, f); std::cout << std::endl;
-	iter<std::string>(stringR, 0, f); std::cout << std::endl;
-
-	return (0);
+public:
+Awesome( void ) : _n( 42 ) { return; }
+int get( void ) const { return this->_n; }
+private:
+int _n;
+};
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
+template< typename T >
+void print( T const & x ) { std::cout << x << std::endl; return; }
+int main() {
+int tab[] = { 0, 1, 2, 3, 4 }; // <--- J'ai jamais compris pourquoi on peut pas ecrire int[] tab. Ca aurait plus de sens vous trouvez pas ?
+Awesome tab2[5];
+iter( tab, 5, print );
+iter( tab2, 5, print );
+return 0;
 }

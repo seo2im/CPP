@@ -2,6 +2,10 @@
 # define EASTFIND_HPP
 # include <exception>
 # include <iostream>
+# include <stack>
+# include <deque>
+# include <vector>
+# include <list>
 
 class NotFoundException : public std::exception
 {
@@ -19,6 +23,19 @@ int easyfind(T & container, int n)
         if (*begin == n)
             return n;
         begin++;
+    }
+    throw NotFoundException();
+}
+
+template<> int easyfind(std::stack<int> & container, int n)
+{
+    std::stack<int> copy(container);
+
+    while (!copy.empty())
+    {
+        if (n == copy.top())
+            return n;
+        copy.pop();
     }
     throw NotFoundException();
 }

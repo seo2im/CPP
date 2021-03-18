@@ -1,5 +1,4 @@
 #include "span.hpp"
-#include <iostream>
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -55,6 +54,21 @@ Span & Span::operator=(Span const & rhs)
 	return *this;
 }
 
+int & Span::operator[](unsigned int index)
+{
+	if (index >= this->size)
+		throw Span::SpanException();
+	return (this->list[index]);
+}
+
+std::ostream &operator<<(std::ostream &out, Span &sp)
+{
+	for (unsigned int i = 0; i < sp.length(); i++) {
+		out << sp[i] << " ";
+	}
+	return (out);
+}
+
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -69,9 +83,11 @@ void Span::addNumber(int n)
 			throw Span::AddNumberExecption();
 	}
 	this->list[++this->cursor] = n;
+	/*
 	for(unsigned int i = 0; i < this->size; i++)
 		std::cout << this->list[i] << " ";
 	std::cout << std::endl;
+	*/
 }
 
 int Span::shortestSpan()
